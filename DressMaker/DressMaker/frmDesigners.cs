@@ -7,30 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SimplyFashionAdmin;
 
-namespace WinForm_admin
+namespace SimplyFashionAdmin
 {
     public sealed partial class frmDesigners : Form
     {
-        #region ><{{{0> Singleton
+        // ><{{{0> Singleton
+        private static readonly frmDesigners _Instance = new frmDesigners();
+
         private frmDesigners()
         {
             InitializeComponent();
         }
-        private static readonly frmDesigners _Instance = new frmDesigners();
+    
 
         public static frmDesigners Instance
         {
-            get { return _Instance; }
+            get { return frmDesigners._Instance; }
         }
-        #endregion
 
-        #region ><(((*> Methods
         private void frmDesigners_Load(object sender, EventArgs e)
         {
             UpdateDisplay();
         }
-
+        //  ><(((0> Update
         public async void UpdateDisplay()
         {
             try
@@ -43,30 +44,32 @@ namespace WinForm_admin
                 MessageBox.Show(ex.Message, "Check connection to server");
             }
         }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void lstDesigners_DoubleClick(object sender, EventArgs e)
-        {
-            OpenDesignerForm();
-        }
-
+        // ><(((*> Method
         private void OpenDesignerForm()
         {
             if (lstDesigners.SelectedItem != null)
             {
                 frmDesigner.Run(lstDesigners.SelectedItem as string);
             }
+            else
+            {
+                MessageBox.Show("Please select a Designer Name.");
+            }
         }
-
-        private void btnNext_Click(object sender, EventArgs e)
+        //  ><(((*> 
+        private void lstDesigners_DoubleClick(object sender, EventArgs e)
         {
             OpenDesignerForm();
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
+        private void btnOpenSelectedDes_Click(object sender, EventArgs e)
+        {
+            OpenDesignerForm();
+        }
     }
 }

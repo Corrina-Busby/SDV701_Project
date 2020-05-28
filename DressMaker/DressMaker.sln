@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30011.22
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1000
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyFashion 1", "DressMaker\SimplyFashion 1.csproj", "{A9E3FCB3-0A3D-4ECA-9CE9-87CBE16C4463}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyFashionAdmin", "DressMaker\SimplyFashionAdmin.csproj", "{A9E3FCB3-0A3D-4ECA-9CE9-87CBE16C4463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyFashionApi", "SimplyFashionApi\SimplyFashionApi.csproj", "{9E8D0ECA-4274-4BB6-8C8D-AF2CD879E71A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A9E3FCB3-0A3D-4ECA-9CE9-87CBE16C4463}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9E3FCB3-0A3D-4ECA-9CE9-87CBE16C4463}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9E3FCB3-0A3D-4ECA-9CE9-87CBE16C4463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E8D0ECA-4274-4BB6-8C8D-AF2CD879E71A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E8D0ECA-4274-4BB6-8C8D-AF2CD879E71A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E8D0ECA-4274-4BB6-8C8D-AF2CD879E71A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E8D0ECA-4274-4BB6-8C8D-AF2CD879E71A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

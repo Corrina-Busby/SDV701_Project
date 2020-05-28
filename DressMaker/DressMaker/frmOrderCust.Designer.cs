@@ -1,4 +1,4 @@
-﻿namespace WinForm_admin
+﻿namespace SimplyFashionAdmin
 {
     partial class frmOrderCust
     {

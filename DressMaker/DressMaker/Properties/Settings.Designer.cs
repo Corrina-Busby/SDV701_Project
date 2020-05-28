@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WinForm_admin.Properties
+namespace SimplyFashionAdmin.Properties
 {
 
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinForm_admin
+namespace SimplyFashionAdmin
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace WinForm_admin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDesigners());
+            Application.Run(frmDesigners.Instance);
         }
     }
 }

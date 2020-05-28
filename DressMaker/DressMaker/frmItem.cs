@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinForm_admin
+namespace SimplyFashionAdmin
 {
     public partial class frmItem : Form
     {

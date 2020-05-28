@@ -1,4 +1,4 @@
-﻿namespace WinForm_admin
+﻿namespace SimplyFashionAdmin
 {
     partial class frmDesigners
     {
@@ -32,7 +32,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnNext = new System.Windows.Forms.Button();
+            this.btnOpenSelectedDes = new System.Windows.Forms.Button();
             this.lblValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -78,15 +78,15 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Total Value:";
             // 
-            // btnNext
+            // btnOpenSelectedDes
             // 
-            this.btnNext.Location = new System.Drawing.Point(156, 214);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(73, 32);
-            this.btnNext.TabIndex = 8;
-            this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            this.btnOpenSelectedDes.Location = new System.Drawing.Point(156, 214);
+            this.btnOpenSelectedDes.Name = "btnOpenSelectedDes";
+            this.btnOpenSelectedDes.Size = new System.Drawing.Size(73, 32);
+            this.btnOpenSelectedDes.TabIndex = 8;
+            this.btnOpenSelectedDes.Text = "Open";
+            this.btnOpenSelectedDes.UseVisualStyleBackColor = true;
+            this.btnOpenSelectedDes.Click += new System.EventHandler(this.btnOpenSelectedDes_Click);
             // 
             // lblValue
             // 
@@ -101,14 +101,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(272, 301);
             this.Controls.Add(this.lblValue);
-            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnOpenSelectedDes);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lstDesigners);
             this.Name = "frmDesigners";
             this.Text = "Designer List";
-            this.Load += new System.EventHandler(this.frmDesigners_Load);
+            this.Load += new System.EventHandler(this.FrmDesigners_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,7 +118,7 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnOpenSelectedDes;
         private System.Windows.Forms.Label lblValue;
         internal System.Windows.Forms.ListBox lstDesigners;
     }
