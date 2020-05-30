@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SimplyFashionAdmin;
 
+/// <summary>
+/// Displays the Designers name, retrieves from database 
+/// Select a designer to view specific items etc to that designer
+/// </summary>
 namespace SimplyFashionAdmin
 {
     public sealed partial class frmDesigners : Form
@@ -19,12 +23,11 @@ namespace SimplyFashionAdmin
         private frmDesigners()
         {
             InitializeComponent();
-        }
-    
+        }    
 
         public static frmDesigners Instance
         {
-            get { return frmDesigners._Instance; }
+            get { return _Instance; }
         }
 
         private void frmDesigners_Load(object sender, EventArgs e)
@@ -41,9 +44,10 @@ namespace SimplyFashionAdmin
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Check connection to server");
+                MessageBox.Show(ex.Message, "Server error");
             }
         }
+
         // ><(((*> Method
         private void OpenDesignerForm()
         {

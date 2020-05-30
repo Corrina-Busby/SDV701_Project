@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstItems = new System.Windows.Forms.ListBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -44,18 +44,18 @@
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lstItems
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Items.AddRange(new object[] {
+            this.lstItems.FormattingEnabled = true;
+            this.lstItems.ItemHeight = 16;
+            this.lstItems.Items.AddRange(new object[] {
             "Pants\t\t\t\t\t3\t1500",
             "T-Shirts\t\t\t\t\t3\t1250",
             "Jackets\t\t\t\t\t1\t 500"});
-            this.listBox1.Location = new System.Drawing.Point(32, 46);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(433, 116);
-            this.listBox1.TabIndex = 0;
+            this.lstItems.Location = new System.Drawing.Point(32, 46);
+            this.lstItems.Name = "lstItems";
+            this.lstItems.Size = new System.Drawing.Size(433, 116);
+            this.lstItems.TabIndex = 0;
             // 
             // btnClose
             // 
@@ -200,7 +200,7 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstItems);
             this.Name = "frmDesigner";
             this.Text = " ";
             this.ResumeLayout(false);
@@ -210,7 +210,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstItems;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;

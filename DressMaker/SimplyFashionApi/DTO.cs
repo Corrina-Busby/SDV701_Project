@@ -1,11 +1,10 @@
-﻿using Org.BouncyCastle.Bcpg;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimplyFashionAdmin
+namespace SimplyFashionApi
 {
     /// <summary>
     /// Info for Designer
@@ -15,7 +14,7 @@ namespace SimplyFashionAdmin
         public string Name { get; set; }
         public string Phone { get; set; }
         
-       public List<clsAllItems> ItemList { get; set; }
+        public List<clsAllItems> ItemList { get; set; }
     }
     /// <summary>
     /// Info for all Items of clothing being sold
@@ -51,4 +50,3 @@ namespace SimplyFashionAdmin
         public string Email { get; set; }
     }
 }
-

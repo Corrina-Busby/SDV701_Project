@@ -108,7 +108,6 @@
             this.Controls.Add(this.lstDesigners);
             this.Name = "frmDesigners";
             this.Text = "Designer List";
-            this.Load += new System.EventHandler(this.FrmDesigners_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
