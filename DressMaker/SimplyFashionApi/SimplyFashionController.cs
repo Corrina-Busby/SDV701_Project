@@ -102,13 +102,13 @@ namespace SimplyFashionApi
             return new clsAllItems()
             {
                 SkuCode = Convert.ToString(prDataRow["skuCode"]),
-                Name = Convert.ToString(prDataRow["itemName"]),
-                Description = Convert.ToString(prDataRow["itemDetails"]),
-                Price = Convert.ToDecimal(prDataRow["buyPrice"]),
-                Date = Convert.ToDateTime(prDataRow["lastModified"]),
-                Quantity = Convert.ToInt32(prDataRow["qtyInStock"]),
+                ItemName = Convert.ToString(prDataRow["itemName"]),
+                ItemDetails = Convert.ToString(prDataRow["itemDetails"]),
+                BuyPrice = Convert.ToDecimal(prDataRow["buyPrice"]),
+                LastModified = Convert.ToString(prDataRow["lastModified"]),
+                QtyInStock = Convert.ToInt32(prDataRow["qtyInStock"]),
                 Introduced = Convert.ToString(prDataRow["introduced"]),
-                Condition = Convert.ToString(prDataRow["condition"]),
+                State = Convert.ToString(prDataRow["state"]),
                 Type = Convert.ToString(prDataRow["type"]),
                 Designer = Convert.ToString(prDataRow["Designer"])
 
@@ -117,7 +117,7 @@ namespace SimplyFashionApi
 
         #endregion
 
-        #region >>)))0> Get all Designers DESIGNER item(s) related to that designer i.e. Gucci
+        #region >>)))0> Get ONE item 
 
         public List<clsAllItems> GetItem(string prSkuCode)
         { // GET
@@ -141,13 +141,13 @@ namespace SimplyFashionApi
             return new clsAllItems()
             {
                 SkuCode = Convert.ToString(prDataRow["skuCode"]),
-                Name = Convert.ToString(prDataRow["itemName"]),
-                Description = Convert.ToString(prDataRow["itemDetails"]),
-                Price = Convert.ToDecimal(prDataRow["buyPrice"]),
-                Date = Convert.ToDateTime(prDataRow["lastModified"]),
-                Quantity = Convert.ToInt32(prDataRow["qtyInStock"]),
+                ItemName = Convert.ToString(prDataRow["itemName"]),
+                ItemDetails = Convert.ToString(prDataRow["itemDetails"]),
+                BuyPrice = Convert.ToDecimal(prDataRow["buyPrice"]),
+                LastModified = Convert.ToString(prDataRow["lastModified"]),
+                QtyInStock = Convert.ToInt32(prDataRow["qtyInStock"]),
                 Introduced = Convert.ToString(prDataRow["introduced"]),
-                Condition = Convert.ToString(prDataRow["condition"]),
+                State = Convert.ToString(prDataRow["state"]),
                 Type = Convert.ToString(prDataRow["type"]),
                 Designer = Convert.ToString(prDataRow["Designer"])
 
@@ -157,16 +157,13 @@ namespace SimplyFashionApi
         #endregion
 
         #region ### INSERTS a designer ITEM with the POST protocol ###
-        public string PostArtWork(clsAllItems prItem)
+        public string PostItem(clsAllItems prItem)
         {   // POST
             try
             {
                 int lcRecCount = clsDbConnection.Execute(
-                    "INSERT INTO item " +
-                    "(skuCode, itemName, itemDetails, buyPrice, lastModified, qtyInStock," + 
-                    "introduced, condition, type, designer)" +
-                    "VALUES (@skuCode, @itemName, @itemDetails, @buyPrice, @lastModified," + 
-                    "@qtyInStock, @introduced, @condition, @type, @designer)",
+                    "INSERT INTO item (skuCode, itemName, itemDetails, buyPrice, lastModified, qtyInStock, introduced, state, type, designer) " +
+                    "VALUES (@skuCode, @itemName, @itemDetails, @buyPrice, @lastModified, @qtyInStock, @introduced, @state, @type, @designer)",
                     prepareItemParameters(prItem));
                 if (lcRecCount == 1)
                     return "One Designer Item Added";
@@ -175,7 +172,7 @@ namespace SimplyFashionApi
             }
             catch (Exception ex)
             {
-                return ex.GetBaseException().Message;
+                return "001 " + ex.GetBaseException().Message;
             }
         }
         #endregion
@@ -184,20 +181,20 @@ namespace SimplyFashionApi
         {
             Dictionary<string, object> par = new Dictionary<string, object>(10);
             par.Add("skuCode", prItem.SkuCode);
-            par.Add("itemName", prItem.Name);
-            par.Add("itemDetails", prItem.Description);
-            par.Add("buyPrice", prItem.Price);
-            par.Add("lastModified", prItem.Date);
-            par.Add("qtyInStock", prItem.Quantity);
+            par.Add("itemName", prItem.ItemName);
+            par.Add("itemDetails", prItem.ItemDetails);
+            par.Add("buyPrice", prItem.BuyPrice);
+            par.Add("lastModified", prItem.LastModified);
+            par.Add("qtyInStock", prItem.QtyInStock);
             par.Add("introduced", prItem.Introduced);
-            par.Add("condition", prItem.Condition);
+            par.Add("state", prItem.State);
             par.Add("type", prItem.Type);
             par.Add("designer", prItem.Designer);
             return par;
         }
 
         #region ### UPDATE an art WORK using the PUT protocol ###
-        public string PutArtWork(clsAllItems prItem)
+        public string PutItem(clsAllItems prItem)
         {   // UPDATE
             try
             {
@@ -205,7 +202,7 @@ namespace SimplyFashionApi
                     "UPDATE item " +
                     "SET itemName = @itemName, itemDetails = @itemDetails," +
                     "buyPrice = @buyPrice, lastModified = @lastModified, qtyInStock = @qtyInStock," +
-                    "introduced = @introduced, condition = @condition, type = @type, designer = @designer " +
+                    "introduced = @introduced, state = @state, type = @type, designer = @designer " +
                     "WHERE skuCode = @skuCode",
                     prepareItemParameters(prItem));
                 if (lcRecCount == 1)
@@ -219,6 +216,53 @@ namespace SimplyFashionApi
             }
         }
         #endregion
+
+        #region ### UPDATE an Quatntity using the PUT protocol ###
+        public string PutQuantity(clsAllItems prItem)
+        {   // UPDATE
+            try
+            {
+                int lcRecCount = clsDbConnection.Execute(
+                    "UPDATE item " +
+                    "SET qtyInStock = @qtyInStock " +                    
+                    "WHERE skuCode = @skuCode",
+                    prepareItemParameters(prItem));
+                if (lcRecCount == 1)
+                    return "One Quantity added";
+                else
+                    return "Unexpected Quantity update count: " + lcRecCount;
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+        }
+        #endregion
+
+        public string DeleteItem(string SkuCode)
+        {   // Delete
+            try
+            {
+                int lcRecCount = clsDbConnection.Execute(
+                   "DELETE FROM item WHERE skuCode = @skuCode",
+                    prepareDeleteItemParameters(SkuCode));
+                if (lcRecCount == 1)
+                    return "One Item Deleted";
+                else
+                    return "Unexpected Item Delete Count: " + lcRecCount;
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+        }
+
+        private Dictionary<string, object> prepareDeleteItemParameters(string prSkuCode)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(1);
+            par.Add("skuCode", prSkuCode);
+            return par;
+        }
 
         //./////////////./
         ///// Orders /////
@@ -245,7 +289,7 @@ namespace SimplyFashionApi
             {
                 Invoice = Convert.ToInt32(prDataRow["invoice"]),
                 SkuCode = Convert.ToString(prDataRow["skuCode"]),
-                Date = Convert.ToDateTime(prDataRow["date "]),
+                Date = Convert.ToDateTime(prDataRow["date"]),
                 Quantity = Convert.ToInt32(prDataRow["qty"]),
                 Price = Convert.ToDecimal(prDataRow["price"]),
                 CustomerName = Convert.ToString(prDataRow["customerName"]),
@@ -262,8 +306,8 @@ namespace SimplyFashionApi
             try
             {
                 int lcRecCount = clsDbConnection.Execute(
-                        "INSERT INTO pendingOrder (invoice, skuCode, date, qty, price, customerName, email) " +
-                        "VALUES (@invoice, @skuCode, @date, @qty, @price, @customerName, @email)",
+                        "INSERT INTO pendingOrder (skuCode, date, qty, price, customerName, email) " +
+                        "VALUES (@skuCode, @date, @qty, @price, @customerName, @email)",
                         prepareOrderParameters(prOrder));
 
                 if (lcRecCount == 1)
@@ -294,13 +338,13 @@ namespace SimplyFashionApi
 
         #region >)))0> Delete an Order from the pending order table
 
-        public string DeleteOrder(string prSkuCode)
+        public string DeleteOrder(string Invoice)
         {   // Delete
             try
             {
                 int lcRecCount = clsDbConnection.Execute(
-                   "DELETE FROM pendingOrder WHERE invoice = @skuCode",
-                    prepareDeleteOrderParameters(prSkuCode));
+                   "DELETE FROM pendingOrder WHERE invoice = @invoice",
+                    prepareDeleteOrderParameters(Invoice));
                 if (lcRecCount == 1)
                     return "One Order Item Deleted";
                 else
@@ -312,10 +356,10 @@ namespace SimplyFashionApi
             }
         }
 
-        private Dictionary<string, object> prepareDeleteOrderParameters(string prSkuCode)
+        private Dictionary<string, object> prepareDeleteOrderParameters(string prInvoice)
         {
-            Dictionary<string, object> par = new Dictionary<string, object>(2);
-            par.Add("skuCode", prSkuCode);
+            Dictionary<string, object> par = new Dictionary<string, object>(1);
+            par.Add("invoice", prInvoice);
             return par;
         }
 

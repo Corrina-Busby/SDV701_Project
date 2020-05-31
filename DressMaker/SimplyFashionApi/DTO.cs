@@ -22,18 +22,18 @@ namespace SimplyFashionApi
     public class clsAllItems
     {
         public string SkuCode  { get; set; } 
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
-        public DateTime Date { get; set; }
-        public int Quantity { get; set; }
+        public string ItemName { get; set; }
+        public string ItemDetails { get; set; }
+        public decimal BuyPrice { get; set; }
+        public string LastModified { get; set; }
+        public int QtyInStock { get; set; }
         public string Introduced { get; set; }
-        public string Condition { get; set; }
+        public string State { get; set; }
         public string Type { get; set; }
         // Foreign Key
         public string Designer { get; set; }
 
-        public List<clsAllOrders> OrderList { get; set; }
+        //public List<clsAllOrders> OrderList { get; set; }
     }
     /// <summary>
     /// Info for all orders of clothing being sold for Designer

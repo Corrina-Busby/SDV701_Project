@@ -40,7 +40,7 @@ namespace SimplyFashionAdmin
             try
             {
                 lstDesigners.DataSource = null;
-                lstDesigners.DataSource = await ServiceClient.GetDesignerNamesAsync();
+                lstDesigners.DataSource = await ServiceClient.GetDesignersNamesAsync();
             }
             catch (Exception ex)
             {
