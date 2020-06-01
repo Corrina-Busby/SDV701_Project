@@ -30,10 +30,6 @@ namespace SimplyFashionAdmin
             get { return _Instance; }
         }
 
-        private void frmDesigners_Load(object sender, EventArgs e)
-        {
-            UpdateDisplay();
-        }
         //  ><(((0> Update
         public async void UpdateDisplay()
         {
@@ -48,7 +44,12 @@ namespace SimplyFashionAdmin
             }
         }
 
-        // ><(((*> Method
+        // ><(((*> Methods
+        private void frmDesigners_Load(object sender, EventArgs e)
+        {
+            UpdateDisplay();
+        }
+
         private void OpenDesignerForm()
         {
             if (lstDesigners.SelectedItem != null)
@@ -60,7 +61,7 @@ namespace SimplyFashionAdmin
                 MessageBox.Show("Please select a Designer Name.");
             }
         }
-        //  ><(((*> 
+        //  ><(((*> Clickables
         private void lstDesigners_DoubleClick(object sender, EventArgs e)
         {
             OpenDesignerForm();

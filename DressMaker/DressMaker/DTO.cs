@@ -17,6 +17,7 @@ namespace SimplyFashionAdmin
 
         public List<clsAllItems> ItemList { get; set; }
     }
+
     /// <summary>
     /// Info for all Items of clothing being sold
     /// </summary>
@@ -36,8 +37,9 @@ namespace SimplyFashionAdmin
 
         //public List<clsAllOrders> OrderList { get; set; }
     }
+
     /// <summary>
-    /// Info for all orders of clothing being sold for Designer
+    /// Info for all orders 
     /// </summary> 
     public class clsAllOrders
     {

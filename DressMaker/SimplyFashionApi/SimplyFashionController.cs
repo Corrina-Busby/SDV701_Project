@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http.ModelBinding.Binders;
 
 namespace SimplyFashionApi
 {
@@ -156,7 +157,10 @@ namespace SimplyFashionApi
 
         #endregion
 
-        #region ### INSERTS a designer ITEM with the POST protocol ###
+        #region >>}}}0> INSERTS designer ITEM with the POST protocol 
+
+        // `condition` now exhanged to state due to MySql workbench issues!!!
+
         public string PostItem(clsAllItems prItem)
         {   // POST
             try
@@ -177,6 +181,8 @@ namespace SimplyFashionApi
         }
         #endregion
 
+        #region >>)))*> PREPARE ITEM PARAMETERS
+
         private Dictionary<string, object> prepareItemParameters(clsAllItems prItem)
         {
             Dictionary<string, object> par = new Dictionary<string, object>(10);
@@ -192,8 +198,9 @@ namespace SimplyFashionApi
             par.Add("designer", prItem.Designer);
             return par;
         }
+        #endregion
 
-        #region ### UPDATE an art WORK using the PUT protocol ###
+        #region >>}}}o> UPDATE an ITEM using the PUT protocol 
         public string PutItem(clsAllItems prItem)
         {   // UPDATE
             try
@@ -217,7 +224,7 @@ namespace SimplyFashionApi
         }
         #endregion
 
-        #region ### UPDATE an Quatntity using the PUT protocol ###
+        #region >>}}}*> UPDATE Quantity using the PUT protocol
         public string PutQuantity(clsAllItems prItem)
         {   // UPDATE
             try
@@ -239,6 +246,8 @@ namespace SimplyFashionApi
         }
         #endregion
 
+        #region >>)))*> DELETE ITEM using DELETE Protocol
+
         public string DeleteItem(string SkuCode)
         {   // Delete
             try
@@ -256,6 +265,9 @@ namespace SimplyFashionApi
                 return ex.GetBaseException().Message;
             }
         }
+        #endregion
+
+        #region >>)))*> PREPARE DELETE ITEM PARAMETERS
 
         private Dictionary<string, object> prepareDeleteItemParameters(string prSkuCode)
         {
@@ -263,6 +275,7 @@ namespace SimplyFashionApi
             par.Add("skuCode", prSkuCode);
             return par;
         }
+        #endregion
 
         //./////////////./
         ///// Orders /////
@@ -320,6 +333,9 @@ namespace SimplyFashionApi
                 return ex.GetBaseException().Message;
             }
         }
+        #endregion
+
+        #region >>)))*> PREPARE ORDER PARAMETERS
 
         private Dictionary<string, object> prepareOrderParameters(clsAllOrders prOrder)
         {
@@ -355,6 +371,9 @@ namespace SimplyFashionApi
                 return ex.GetBaseException().Message;
             }
         }
+        #endregion
+
+        #region >>)))*> PREPARE DELETE ORDER PARAMETERS
 
         private Dictionary<string, object> prepareDeleteOrderParameters(string prInvoice)
         {
@@ -362,9 +381,6 @@ namespace SimplyFashionApi
             par.Add("invoice", prInvoice);
             return par;
         }
-
         #endregion
-
-
     }
 }

@@ -17,11 +17,11 @@ namespace SimplyFashionAdmin
 {
     public sealed partial class frmDesigner : Form
     {
-        private clsDesigners _Designer;
+        private clsDesigners _Designers;
         private List<clsAllItems> _ItemList;
         private List<clsAllOrders> _OrderList;
 
-        public clsDesigners Designer { get => _Designer; set => _Designer = value; }
+        public clsDesigners Designers { get => _Designers; set => _Designers = value; }
         public List<clsAllItems> ItemList { get => _ItemList; set => _ItemList = value; } 
         public List<clsAllOrders> OrderList { get => _OrderList; set => _OrderList = value; }
 
@@ -33,37 +33,43 @@ namespace SimplyFashionAdmin
             InitializeComponent();
         }
 
-        public static void Run(string prDesignerName)
+        public static void Run(string prDesignersName)
         {
-            if (string.IsNullOrEmpty(prDesignerName))
+            if (string.IsNullOrEmpty(prDesignersName))
             {
                 Instance.SetDetails(new clsDesigners());
             }
             else
             {
-                Instance.loadDesignerFormDB(prDesignerName);
+                Instance.loadDesignerFormDB(prDesignersName);
             }
             Instance.Show();
         }
 
-
-        private async void loadDesignerFormDB(string prDesignerName)
+        private async void loadDesignerFormDB(string prDesignersName)
         {
-            SetDetails(await ServiceClient.GetDesignerAsync(prDesignerName));
+            SetDetails(await ServiceClient.GetDesignerAsync(prDesignersName));
         }
 
-        private void SetDetails(clsDesigners prDesignerName)
+        public async void SetDetails(clsDesigners prDesigners)
         {
-            _Designer = prDesignerName;
-         //   UpdateDisplay();
+            Designers = prDesigners;
+            try
+            {
+                ItemList = await ServiceClient.GetDesignerItemsAsync(Designers.Name);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.GetBaseException().Message);;
+            }
         }
 
-        //private void UpdateDisplay()
-        //{
+        private void UpdateDisplay()
+        {
 
-        //    lstItems.DataSource = null;
-        //    if (_Designer.ItemList != null)
-        //        lstItems.DataSource = _Designer.ItemList;
-        //}
+            lstItems.DataSource = null;
+            if (_Designers.ItemList != null)
+                lstItems.DataSource = _Designers.ItemList;
+        }
     }
 }
