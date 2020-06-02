@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DressMaker;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -57,6 +58,7 @@ namespace SimplyFashionAdmin
             try
             {
                 ItemList = await ServiceClient.GetDesignerItemsAsync(Designers.Name);
+                UpdateForm();
             }
             catch (Exception ex)
             {
@@ -66,10 +68,63 @@ namespace SimplyFashionAdmin
 
         private void UpdateDisplay()
         {
-
             lstItems.DataSource = null;
             if (_Designers.ItemList != null)
                 lstItems.DataSource = _Designers.ItemList;
+        }
+
+        public void UpdateForm()
+        {
+            txtName.Text = _Designers.Name;
+            txtPhone.Text = _Designers.Phone;
+            UpdateDisplay();
+        }
+        // >>}})0> Buttons
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Hide();
+        }
+
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+           int lcIndex = lstItems.SelectedIndex;
+            try
+            {
+                    if (lcIndex >= 0 && MessageBox.Show("Are you sure?", "Deleting Items", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        MessageBox.Show(await ServiceClient.DeleteItem(lstItems.SelectedItem as clsAllItems));
+                        loadDesignerFormDB(_Designers.Name);
+                    frmDesigners.Instance.UpdateDisplay();
+                    }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("ye");
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            clsAllItems lcDesignerItem = new clsAllItems();
+            switch (cboPickState.Text)
+            {
+                case "Used":
+                    lcDesignerItem.Type = "used";
+                    lcDesignerItem.Designer = Designers.Name;
+                    frmUsedItem.Run(lcDesignerItem);
+                    break;
+                case "New":
+                    lcDesignerItem.Type = "new";
+                    lcDesignerItem.Designer = Designers.Name;
+                    frmNewItem.Run(lcDesignerItem);
+                    break;
+                default:
+                    MessageBox.Show("Select Required");
+                    break;
+            }
+            UpdateDisplay();
+
         }
     }
 }

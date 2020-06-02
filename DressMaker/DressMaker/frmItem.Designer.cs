@@ -34,21 +34,25 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.lstDescription = new System.Windows.Forms.ListBox();
-            this.btnSell = new System.Windows.Forms.Button();
+            this.btnSaveOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtSKU = new System.Windows.Forms.TextBox();
             this.txtItem = new System.Windows.Forms.TextBox();
-            this.txtQuantity = new System.Windows.Forms.TextBox();
-            this.txtPrice = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDateNow = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.nudQuantity = new System.Windows.Forms.NumericUpDown();
+            this.nudPrice = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDesignerNme = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 24);
+            this.label2.Location = new System.Drawing.Point(412, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 18);
             this.label2.TabIndex = 1;
@@ -58,17 +62,17 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 52);
+            this.label3.Location = new System.Drawing.Point(448, 150);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 18);
+            this.label3.Size = new System.Drawing.Size(39, 18);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Style / SKU:";
+            this.label3.Text = "SKU:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(21, 466);
+            this.label4.Location = new System.Drawing.Point(320, 27);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(138, 18);
             this.label4.TabIndex = 3;
@@ -78,7 +82,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 396);
+            this.label5.Location = new System.Drawing.Point(452, 186);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 18);
             this.label5.TabIndex = 4;
@@ -88,7 +92,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(21, 432);
+            this.label6.Location = new System.Drawing.Point(448, 220);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 18);
             this.label6.TabIndex = 5;
@@ -98,104 +102,108 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(26, 84);
+            this.label7.Location = new System.Drawing.Point(35, 111);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(88, 18);
             this.label7.TabIndex = 6;
             this.label7.Text = "Description:";
             // 
-            // lstDescription
+            // btnSaveOK
             // 
-            this.lstDescription.FormattingEnabled = true;
-            this.lstDescription.ItemHeight = 16;
-            this.lstDescription.Items.AddRange(new object[] {
-            "    Prada Boutique print T-shirt",
-            "",
-            "    Off-white cotton jersey",
-            "    Prada Boutique, Web and Horsebit print",
-            "    Crewneck",
-            "    Oversize fit",
-            "    Length: 72cm based on a size small",
-            "    100% cotton",
-            "",
-            "    Made in Italy"});
-            this.lstDescription.Location = new System.Drawing.Point(115, 115);
-            this.lstDescription.Name = "lstDescription";
-            this.lstDescription.Size = new System.Drawing.Size(398, 196);
-            this.lstDescription.TabIndex = 7;
-            // 
-            // btnSell
-            // 
-            this.btnSell.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSell.Location = new System.Drawing.Point(466, 432);
-            this.btnSell.Name = "btnSell";
-            this.btnSell.Size = new System.Drawing.Size(142, 33);
-            this.btnSell.TabIndex = 8;
-            this.btnSell.Text = "Sell";
-            this.btnSell.UseVisualStyleBackColor = false;
+            this.btnSaveOK.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSaveOK.Location = new System.Drawing.Point(455, 395);
+            this.btnSaveOK.Name = "btnSaveOK";
+            this.btnSaveOK.Size = new System.Drawing.Size(142, 33);
+            this.btnSaveOK.TabIndex = 8;
+            this.btnSaveOK.Text = "Save";
+            this.btnSaveOK.UseVisualStyleBackColor = false;
+            this.btnSaveOK.Click += new System.EventHandler(this.btnSaveOK_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(466, 393);
+            this.btnCancel.Location = new System.Drawing.Point(455, 356);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(142, 33);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtSKU
             // 
-            this.txtSKU.Location = new System.Drawing.Point(115, 52);
+            this.txtSKU.Location = new System.Drawing.Point(494, 146);
             this.txtSKU.Name = "txtSKU";
-            this.txtSKU.Size = new System.Drawing.Size(162, 22);
+            this.txtSKU.Size = new System.Drawing.Size(82, 22);
             this.txtSKU.TabIndex = 10;
-            this.txtSKU.Text = "TEE-01-WHI";
             // 
             // txtItem
             // 
-            this.txtItem.Location = new System.Drawing.Point(115, 24);
+            this.txtItem.Location = new System.Drawing.Point(476, 58);
             this.txtItem.Name = "txtItem";
-            this.txtItem.Size = new System.Drawing.Size(162, 22);
+            this.txtItem.Size = new System.Drawing.Size(100, 22);
             this.txtItem.TabIndex = 11;
-            this.txtItem.Text = "Shirt";
             // 
-            // txtQuantity
+            // txtDateNow
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(115, 396);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(100, 22);
-            this.txtQuantity.TabIndex = 13;
-            this.txtQuantity.Text = "2";
+            this.txtDateNow.Location = new System.Drawing.Point(476, 27);
+            this.txtDateNow.Name = "txtDateNow";
+            this.txtDateNow.Size = new System.Drawing.Size(100, 22);
+            this.txtDateNow.TabIndex = 18;
             // 
-            // txtPrice
+            // txtDescription
             // 
-            this.txtPrice.Location = new System.Drawing.Point(115, 432);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(100, 22);
-            this.txtPrice.TabIndex = 14;
-            this.txtPrice.Text = "500";
+            this.txtDescription.Location = new System.Drawing.Point(38, 146);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(392, 201);
+            this.txtDescription.TabIndex = 19;
             // 
-            // textBox1
+            // nudQuantity
             // 
-            this.textBox1.Location = new System.Drawing.Point(165, 460);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 18;
-            this.textBox1.Text = "05/05/2020";
+            this.nudQuantity.Location = new System.Drawing.Point(494, 183);
+            this.nudQuantity.Name = "nudQuantity";
+            this.nudQuantity.Size = new System.Drawing.Size(82, 22);
+            this.nudQuantity.TabIndex = 20;
+            // 
+            // nudPrice
+            // 
+            this.nudPrice.Location = new System.Drawing.Point(494, 220);
+            this.nudPrice.Name = "nudPrice";
+            this.nudPrice.Size = new System.Drawing.Size(82, 22);
+            this.nudPrice.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(35, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 18);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Designer Name:";
+            // 
+            // txtDesignerNme
+            // 
+            this.txtDesignerNme.Location = new System.Drawing.Point(38, 48);
+            this.txtDesignerNme.Name = "txtDesignerNme";
+            this.txtDesignerNme.Size = new System.Drawing.Size(100, 22);
+            this.txtDesignerNme.TabIndex = 23;
             // 
             // frmItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 525);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtPrice);
-            this.Controls.Add(this.txtQuantity);
+            this.ClientSize = new System.Drawing.Size(618, 459);
+            this.Controls.Add(this.txtDesignerNme);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.nudPrice);
+            this.Controls.Add(this.nudQuantity);
+            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.txtDateNow);
             this.Controls.Add(this.txtItem);
             this.Controls.Add(this.txtSKU);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSell);
-            this.Controls.Add(this.lstDescription);
+            this.Controls.Add(this.btnSaveOK);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -204,6 +212,8 @@
             this.Controls.Add(this.label2);
             this.Name = "frmItem";
             this.Text = "Item ";
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,13 +226,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListBox lstDescription;
-        private System.Windows.Forms.Button btnSell;
+        private System.Windows.Forms.Button btnSaveOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtSKU;
         private System.Windows.Forms.TextBox txtItem;
-        private System.Windows.Forms.TextBox txtQuantity;
-        private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDateNow;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.NumericUpDown nudQuantity;
+        private System.Windows.Forms.NumericUpDown nudPrice;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtDesignerNme;
     }
 }
