@@ -103,24 +103,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO.cs" />
-    <Compile Include="frmDesignCust.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDesignCust.Designer.cs">
-      <DependentUpon>frmDesignCust.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmOrderCust.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmOrderCust.Designer.cs">
-      <DependentUpon>frmOrderCust.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDesignersCust.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDesignersCust.Designer.cs">
-      <DependentUpon>frmDesignersCust.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmDesigner.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,12 +121,6 @@
     <Compile Include="frmDesigners.Designer.cs">
       <DependentUpon>frmDesigners.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmItemChkoutCust.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmItemChkoutCust.Designer.cs">
-      <DependentUpon>frmItemChkoutCust.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmPendingOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,15 +130,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceClient.cs" />
-    <EmbeddedResource Include="frmDesignCust.resx">
-      <DependentUpon>frmDesignCust.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmOrderCust.resx">
-      <DependentUpon>frmOrderCust.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDesignersCust.resx">
-      <DependentUpon>frmDesignersCust.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmDesigner.resx">
       <DependentUpon>frmDesigner.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,9 +138,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDesigners.resx">
       <DependentUpon>frmDesigners.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmItemChkoutCust.resx">
-      <DependentUpon>frmItemChkoutCust.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPendingOrder.resx">
       <DependentUpon>frmPendingOrder.cs</DependentUpon>

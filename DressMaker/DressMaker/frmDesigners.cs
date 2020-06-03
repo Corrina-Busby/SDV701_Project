@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Google.Protobuf.WellKnownTypes;
 using SimplyFashionAdmin;
 
 /// <summary>
@@ -27,7 +28,7 @@ namespace SimplyFashionAdmin
 
         public static frmDesigners Instance
         {
-            get { return _Instance; }
+            get { return frmDesigners._Instance; }
         }
 
         //  ><(((0> Update
@@ -37,12 +38,23 @@ namespace SimplyFashionAdmin
             {
                 lstDesigners.DataSource = null;
                 lstDesigners.DataSource = await ServiceClient.GetDesignersNamesAsync();
+             //   lblTotalValue.Text = Convert.ToString(GetTotalValue());
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Server error");
             }
         }
+
+        //private decimal GetTotalValue()
+        //{
+        //    decimal lcTotal = 0;
+        //    foreach (clsDesigners lcDesigners in Values)
+        //    {
+        //        lcTotal += lcDesigners.TotalValue;
+        //    }
+        //    return lcTotal;
+        //}
 
         // ><(((*> Methods
         private void frmDesigners_Load(object sender, EventArgs e)
@@ -52,13 +64,16 @@ namespace SimplyFashionAdmin
 
         private void OpenDesignerForm()
         {
-            if (lstDesigners.SelectedItem != null)
+            string lcKey;
+            lcKey = Convert.ToString(lstDesigners.SelectedItem);
+            if (lcKey != null)
+             try
             {
                 frmDesigner.Run(lstDesigners.SelectedItem as string);
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please select a Designer Name.");
+                MessageBox.Show(ex.Message, "Please select a Designer Name.");
             }
         }
         //  ><(((*> Clickables
@@ -72,7 +87,7 @@ namespace SimplyFashionAdmin
             Close();
         }
 
-        private void btnOpenSelectedDes_Click(object sender, EventArgs e)
+        private void btnOpenSelectedDesigner_Click(object sender, EventArgs e)
         {
             OpenDesignerForm();
         }

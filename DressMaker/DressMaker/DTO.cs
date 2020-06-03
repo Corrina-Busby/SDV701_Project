@@ -16,6 +16,7 @@ namespace SimplyFashionAdmin
         public string Phone { get; set; }
 
         public List<clsAllItems> ItemList { get; set; }
+        //public decimal TotalValue { get {return  } }
     }
 
     /// <summary>
@@ -29,14 +30,21 @@ namespace SimplyFashionAdmin
         public decimal BuyPrice { get; set; }
         public string LastModified { get; set; }
         public int QtyInStock { get; set; }
-        public string Introduced { get; set; }
-        public string State { get; set; }
-        public string Type { get; set; }
+        public string Introduced { get; set; } // for new: year or season introduced w/e its a string
+        public string State { get; set; } // for used: bad fair good
+        public string Type { get; set; } // new or used
         // Foreign Key
         public string Designer { get; set; }
 
+        public override string ToString()
+        {
+            return ItemName + "\t\t" + LastModified + "\t\t" + Type + "\t\t" + QtyInStock.ToString() + "\t\t" + BuyPrice;
+        }
+
         //public List<clsAllOrders> OrderList { get; set; }
     }
+
+
 
     /// <summary>
     /// Info for all orders 

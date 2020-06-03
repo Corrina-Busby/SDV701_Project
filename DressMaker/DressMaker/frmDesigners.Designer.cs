@@ -32,8 +32,8 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnOpenSelectedDes = new System.Windows.Forms.Button();
-            this.lblValue = new System.Windows.Forms.Label();
+            this.btnOpenSelectedDesigner = new System.Windows.Forms.Button();
+            this.lblTotalValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lstDesigners
@@ -44,13 +44,14 @@
             "designerNames"});
             this.lstDesigners.Location = new System.Drawing.Point(39, 44);
             this.lstDesigners.Name = "lstDesigners";
-            this.lstDesigners.Size = new System.Drawing.Size(190, 116);
+            this.lstDesigners.Size = new System.Drawing.Size(225, 116);
+            this.lstDesigners.Sorted = true;
             this.lstDesigners.TabIndex = 0;
             this.lstDesigners.DoubleClick += new System.EventHandler(this.lstDesigners_DoubleClick);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(39, 214);
+            this.btnClose.Location = new System.Drawing.Point(284, 128);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(73, 32);
             this.btnClose.TabIndex = 2;
@@ -78,36 +79,36 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Total Value:";
             // 
-            // btnOpenSelectedDes
+            // btnOpenSelectedDesigner
             // 
-            this.btnOpenSelectedDes.Location = new System.Drawing.Point(156, 214);
-            this.btnOpenSelectedDes.Name = "btnOpenSelectedDes";
-            this.btnOpenSelectedDes.Size = new System.Drawing.Size(73, 32);
-            this.btnOpenSelectedDes.TabIndex = 8;
-            this.btnOpenSelectedDes.Text = "Open";
-            this.btnOpenSelectedDes.UseVisualStyleBackColor = true;
-            this.btnOpenSelectedDes.Click += new System.EventHandler(this.btnOpenSelectedDes_Click);
+            this.btnOpenSelectedDesigner.Location = new System.Drawing.Point(284, 90);
+            this.btnOpenSelectedDesigner.Name = "btnOpenSelectedDesigner";
+            this.btnOpenSelectedDesigner.Size = new System.Drawing.Size(73, 32);
+            this.btnOpenSelectedDesigner.TabIndex = 8;
+            this.btnOpenSelectedDesigner.Text = "Open";
+            this.btnOpenSelectedDesigner.UseVisualStyleBackColor = true;
+            this.btnOpenSelectedDesigner.Click += new System.EventHandler(this.btnOpenSelectedDesigner_Click);
             // 
-            // lblValue
+            // lblTotalValue
             // 
-            this.lblValue.Location = new System.Drawing.Point(129, 174);
-            this.lblValue.Name = "lblValue";
-            this.lblValue.Size = new System.Drawing.Size(100, 23);
-            this.lblValue.TabIndex = 9;
+            this.lblTotalValue.Location = new System.Drawing.Point(129, 174);
+            this.lblTotalValue.Name = "lblTotalValue";
+            this.lblTotalValue.Size = new System.Drawing.Size(100, 23);
+            this.lblTotalValue.TabIndex = 9;
             // 
             // frmDesigners
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(272, 301);
-            this.Controls.Add(this.lblValue);
-            this.Controls.Add(this.btnOpenSelectedDes);
+            this.ClientSize = new System.Drawing.Size(391, 215);
+            this.Controls.Add(this.lblTotalValue);
+            this.Controls.Add(this.btnOpenSelectedDesigner);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lstDesigners);
             this.Name = "frmDesigners";
-            this.Text = "Designer List";
+            this.Text = "Simply Fashion";
             this.Load += new System.EventHandler(this.frmDesigners_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -118,8 +119,8 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnOpenSelectedDes;
-        private System.Windows.Forms.Label lblValue;
+        private System.Windows.Forms.Button btnOpenSelectedDesigner;
+        private System.Windows.Forms.Label lblTotalValue;
         internal System.Windows.Forms.ListBox lstDesigners;
     }
 }

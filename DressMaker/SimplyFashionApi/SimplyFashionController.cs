@@ -48,7 +48,7 @@ namespace SimplyFashionApi
                 {
                     Name = (string)lcResult.Rows[0]["name"],
                     Phone = (string)lcResult.Rows[0]["phone"], 
-                   // ItemList = GetDesignerItems(Name)
+                   ItemList = GetDesignerItems(Name)
                 };
             else
                 return null;
