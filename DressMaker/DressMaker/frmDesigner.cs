@@ -74,6 +74,12 @@ namespace SimplyFashionAdmin
             lblDesignersName.Text = _Designer.Name;
             lblPhone.Text = _Designer.Phone;
         }
+
+        private void pushData()
+        {
+            _Designer.Name = lblDesignersName.Text;
+            _Designer.Phone = lblPhone.Text;
+        }
         // >>}})0> Buttons
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -95,31 +101,51 @@ namespace SimplyFashionAdmin
             catch (Exception)
             {
 
-                MessageBox.Show("ye");
+                MessageBox.Show("Contact I.T. support");
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            clsAllItems lcDesignerItem = new clsAllItems();
-            switch (cboPickState.Text)
+            string lcReply = new InputBox(clsAllItems.FACTORY_PROMPT).Choice;
+            if (!string.IsNullOrEmpty(lcReply)) 
             {
-                case "Used":
-                    lcDesignerItem.Type = "used";
-                    lcDesignerItem.Designer = Designers.Name;
-                 //   frmUsedItem.Run(lcDesignerItem);
-                    break;
-                case "New":
-                    lcDesignerItem.Type = "new";
-                    lcDesignerItem.Designer = Designers.Name;
-                  //  frmNewItem.Run(lcDesignerItem);
-                    break;
-                default:
-                    MessageBox.Show("Select Required");
-                    break;
+                clsAllItems lcItemType = clsAllItems.NewDesignerItem(lcReply[0]);
+                if (lcItemType != null)
+                {
+                    if (lblDesignersName.Enabled)
+                    {
+                        lcItemType.Designer = _Designer.Name;
+                        frmItem.DispatchDesignerItemForm(lcItemType);
+                        if (!string.IsNullOrEmpty(lcItemType.Designer))
+                        {
+                            refreshFormFromDB(_Designer.Name);
+                            frmDesigners.Instance.UpdateDisplay();
+                        }
+                        
+                    }
+                }
             }
-            UpdateDisplay();
-
         }
     }
 }
+
+
+//clsAllItems lcDesignerItem = new clsAllItems();
+//            switch (cboPickState.Text)
+//            {
+//                case "Used":
+//                    lcDesignerItem.Type = "used";
+//                    lcDesignerItem.Designer = Designers.Name;
+//                 //   frmUsedItem.Run(lcDesignerItem);
+//                    break;
+//                case "New":
+//                    lcDesignerItem.Type = "new";
+//                    lcDesignerItem.Designer = Designers.Name;
+//                  //  frmNewItem.Run(lcDesignerItem);
+//                    break;
+//                default:
+//                    MessageBox.Show("Select Required");
+//                    break;
+//            }
+//            UpdateDisplay();

@@ -110,7 +110,7 @@ namespace SimplyFashionApi
                 QtyInStock = Convert.ToInt32(prDataRow["qtyInStock"]),
                 Introduced = Convert.ToString(prDataRow["introduced"]),
                 State = Convert.ToString(prDataRow["state"]),
-                Type = Convert.ToString(prDataRow["type"]),
+                Type = Convert.ToChar(prDataRow["type"]),
                 Designer = Convert.ToString(prDataRow["Designer"])
 
             };
@@ -149,7 +149,7 @@ namespace SimplyFashionApi
                 QtyInStock = Convert.ToInt32(prDataRow["qtyInStock"]),
                 Introduced = Convert.ToString(prDataRow["introduced"]),
                 State = Convert.ToString(prDataRow["state"]),
-                Type = Convert.ToString(prDataRow["type"]),
+                Type = Convert.ToChar(prDataRow["type"]),
                 Designer = Convert.ToString(prDataRow["Designer"])
 
             };

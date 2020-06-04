@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace SimplyFashionAdmin
@@ -6,9 +7,22 @@ namespace SimplyFashionAdmin
     public partial class frmItem : Form
     {
         private clsDesigners _Designers;
-        private clsAllItems _DesignerItem;
-        public clsAllItems DesignerItem { get => _DesignerItem; set => _DesignerItem = value; }
+      //  private clsAllItems _DesignerItem;
+     //   public clsAllItems DesignerItem { get => _DesignerItem; set => _DesignerItem = value; }
         public clsDesigners Designers { get => _Designers; set => _Designers = value; }
+
+        public delegate void LoadDesignerItemFormDelegate(clsAllItems prDesignerItem);
+        public static Dictionary<char, Delegate> _DesignerItemForm = new Dictionary<char, Delegate>
+        {
+          //  {'U', new LoadDesignerItemFormDelegate(frmNewDesignerItem.Run) },
+         //   {'N', new LoadDesignerItemFormDelegate(frmUsedDesignerItem.Run) }
+        };
+
+        public static void DispatchDesignerItemForm(clsAllItems prDesignerItem)
+        {
+            _DesignerItemForm[prDesignerItem.Type].DynamicInvoke(prDesignerItem);
+        }
+        protected clsAllItems _DesignerItem;
 
         public frmItem()
         {
@@ -16,7 +30,7 @@ namespace SimplyFashionAdmin
         }
         public void SetDetails(clsAllItems prDesignerItem)
         {
-            DesignerItem = prDesignerItem;
+            _DesignerItem = prDesignerItem;
             UpdateForm();
             ShowDialog();
         }
@@ -26,11 +40,11 @@ namespace SimplyFashionAdmin
             if (IsValid())
             {
                 pushData();
-                DesignerItem.LastModified = txtDateNow.Text;
+                _DesignerItem.LastModified = txtDateNow.Text;
                 if(txtSKU.Enabled)
-                    MessageBox.Show(await ServiceClient.PostItemAsync(DesignerItem));
+                    MessageBox.Show(await ServiceClient.PostItemAsync(_DesignerItem));
                 else
-                    MessageBox.Show(await ServiceClient.PutItemAsync(DesignerItem));
+                    MessageBox.Show(await ServiceClient.PutItemAsync(_DesignerItem));
                 Close();
             }
             else
@@ -41,26 +55,26 @@ namespace SimplyFashionAdmin
 
         protected virtual void pushData()
         {
-            DesignerItem.SkuCode = txtSKU.Text;
+            _DesignerItem.SkuCode = txtSKU.Text;
             Designers.Name = txtDesignerNme.Text;
-            DesignerItem.ItemDetails = txtDescription.Text;
-            DesignerItem.LastModified = txtDateNow.Text;
-            DesignerItem.ItemName = txtItem.Text;
-            DesignerItem.QtyInStock = Convert.ToInt32(nudQuantity.Value);
-            DesignerItem.BuyPrice = nudPrice.Value;
+            _DesignerItem.ItemDetails = txtDescription.Text;
+            _DesignerItem.LastModified = txtDateNow.Text;
+            _DesignerItem.ItemName = txtItem.Text;
+            _DesignerItem.QtyInStock = Convert.ToInt32(nudQuantity.Value);
+            _DesignerItem.BuyPrice = nudPrice.Value;
 
         }
 
         protected virtual void UpdateForm()
         {
-            txtSKU.Enabled = string.IsNullOrEmpty(DesignerItem.Designer);
-            txtSKU.Text = DesignerItem.SkuCode;
+            txtSKU.Enabled = string.IsNullOrEmpty(_DesignerItem.Designer);
+            txtSKU.Text = _DesignerItem.SkuCode;
             txtDesignerNme.Text = Designers.Name;
-            txtDescription.Text = DesignerItem.ItemDetails;
-            txtDateNow.Text = DesignerItem.LastModified;
-            txtItem.Text = DesignerItem.ItemName;
-            nudQuantity.Value = DesignerItem.QtyInStock;
-            nudPrice.Value = DesignerItem.BuyPrice;
+            txtDescription.Text = _DesignerItem.ItemDetails;
+            txtDateNow.Text = _DesignerItem.LastModified;
+            txtItem.Text = _DesignerItem.ItemName;
+            nudQuantity.Value = _DesignerItem.QtyInStock;
+            nudPrice.Value = _DesignerItem.BuyPrice;
         }
 
 

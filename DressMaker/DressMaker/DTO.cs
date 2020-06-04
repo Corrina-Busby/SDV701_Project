@@ -32,7 +32,7 @@ namespace SimplyFashionAdmin
         public int QtyInStock { get; set; }
         public string Introduced { get; set; } // for new: year or season introduced w/e its a string
         public string State { get; set; } // for used: bad fair good
-        public string Type { get; set; } // new or used
+        public char Type { get; set; } // new or used
         // Foreign Key
         public string Designer { get; set; }
 
@@ -41,11 +41,15 @@ namespace SimplyFashionAdmin
             return ItemName + "\t\t" + LastModified + "\t\t" + Type + "\t\t" + QtyInStock.ToString() + "\t\t" + BuyPrice;
         }
 
+        public static readonly string FACTORY_PROMPT = "Enter U for Used Item" + "\n" + "N for New Item";
+
+        public static clsAllItems NewDesignerItem(char prChoice)
+        {
+            return new clsAllItems() { Type = Char.ToUpper(prChoice)};
+        }
+
         //public List<clsAllOrders> OrderList { get; set; }
     }
-
-
-
     /// <summary>
     /// Info for all orders 
     /// </summary> 

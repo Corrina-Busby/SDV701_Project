@@ -33,7 +33,6 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.cboPickState = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +44,7 @@
             this.lblContactTitle = new System.Windows.Forms.Label();
             this.optSort = new System.Windows.Forms.GroupBox();
             this.rbByDate = new System.Windows.Forms.RadioButton();
-            this.rbByItem = new System.Windows.Forms.RadioButton();
+            this.rbByType = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.optSort.SuspendLayout();
@@ -62,9 +61,9 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(628, 354);
+            this.btnClose.Location = new System.Drawing.Point(573, 354);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(117, 31);
+            this.btnClose.Size = new System.Drawing.Size(172, 31);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Exit";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -72,9 +71,9 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(336, 354);
+            this.btnDelete.Location = new System.Drawing.Point(209, 354);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(117, 31);
+            this.btnDelete.Size = new System.Drawing.Size(172, 31);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -82,35 +81,22 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(485, 354);
+            this.btnEdit.Location = new System.Drawing.Point(395, 354);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(117, 31);
+            this.btnEdit.Size = new System.Drawing.Size(172, 31);
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(183, 354);
+            this.btnAdd.Location = new System.Drawing.Point(31, 354);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(117, 31);
+            this.btnAdd.Size = new System.Drawing.Size(172, 31);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // cboPickState
-            // 
-            this.cboPickState.FormattingEnabled = true;
-            this.cboPickState.Items.AddRange(new object[] {
-            "New",
-            "Used"});
-            this.cboPickState.Location = new System.Drawing.Point(33, 354);
-            this.cboPickState.Name = "cboPickState";
-            this.cboPickState.Size = new System.Drawing.Size(117, 24);
-            this.cboPickState.TabIndex = 5;
-            this.cboPickState.Tag = "";
-            this.cboPickState.Text = "Choose....";
             // 
             // label1
             // 
@@ -203,7 +189,7 @@
             // optSort
             // 
             this.optSort.Controls.Add(this.rbByDate);
-            this.optSort.Controls.Add(this.rbByItem);
+            this.optSort.Controls.Add(this.rbByType);
             this.optSort.Font = new System.Drawing.Font("Microsoft Tai Le", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optSort.Location = new System.Drawing.Point(571, 66);
             this.optSort.Name = "optSort";
@@ -218,17 +204,17 @@
             this.rbByDate.Name = "rbByDate";
             this.rbByDate.Size = new System.Drawing.Size(70, 24);
             this.rbByDate.TabIndex = 1;
-            this.rbByDate.Text = "Stock";
+            this.rbByDate.Text = "Date";
             this.rbByDate.UseVisualStyleBackColor = true;
             // 
-            // rbByItem
+            // rbByType
             // 
-            this.rbByItem.Location = new System.Drawing.Point(20, 21);
-            this.rbByItem.Name = "rbByItem";
-            this.rbByItem.Size = new System.Drawing.Size(61, 24);
-            this.rbByItem.TabIndex = 0;
-            this.rbByItem.Text = "Type";
-            this.rbByItem.UseVisualStyleBackColor = true;
+            this.rbByType.Location = new System.Drawing.Point(20, 21);
+            this.rbByType.Name = "rbByType";
+            this.rbByType.Size = new System.Drawing.Size(61, 24);
+            this.rbByType.TabIndex = 0;
+            this.rbByType.Text = "Type";
+            this.rbByType.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -265,7 +251,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cboPickState);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
@@ -286,7 +271,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.ComboBox cboPickState;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -300,6 +284,6 @@
         private System.Windows.Forms.Label label6;
         internal System.Windows.Forms.Label lblTotal;
         internal System.Windows.Forms.RadioButton rbByDate;
-        internal System.Windows.Forms.RadioButton rbByItem;
+        internal System.Windows.Forms.RadioButton rbByType;
     }
 }

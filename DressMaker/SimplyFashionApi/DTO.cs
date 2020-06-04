@@ -29,7 +29,7 @@ namespace SimplyFashionApi
         public int QtyInStock { get; set; }
         public string Introduced { get; set; }
         public string State { get; set; }
-        public string Type { get; set; }
+        public char Type { get; set; }
         // Foreign Key
         public string Designer { get; set; }
 
