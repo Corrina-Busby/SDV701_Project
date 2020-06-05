@@ -46,16 +46,6 @@ namespace SimplyFashionAdmin
             }
         }
 
-        //private decimal GetTotalValue()
-        //{
-        //    decimal lcTotal = 0;
-        //    foreach (clsDesigners lcDesigners in Values)
-        //    {
-        //        lcTotal += lcDesigners.TotalValue;
-        //    }
-        //    return lcTotal;
-        //}
-
         // ><(((*> Methods
         private void frmDesigners_Load(object sender, EventArgs e)
         {
@@ -91,5 +81,24 @@ namespace SimplyFashionAdmin
         {
             OpenDesignerForm();
         }
+
+        private void btnOrders_Click(object sender, EventArgs e)
+        {
+            frmPendingOrder.Instance.Show();           
+        }
+
     }
 }
+
+
+
+
+//private decimal GetTotalValue()
+//{
+//    decimal lcTotal = 0;
+//    foreach (clsDesigners lcDesigners in Values)
+//    {
+//        lcTotal += lcDesigners.TotalValue;
+//    }
+//    return lcTotal;
+//}

@@ -131,21 +131,3 @@ namespace SimplyFashionAdmin
 }
 
 
-//clsAllItems lcDesignerItem = new clsAllItems();
-//            switch (cboPickState.Text)
-//            {
-//                case "Used":
-//                    lcDesignerItem.Type = "used";
-//                    lcDesignerItem.Designer = Designers.Name;
-//                 //   frmUsedItem.Run(lcDesignerItem);
-//                    break;
-//                case "New":
-//                    lcDesignerItem.Type = "new";
-//                    lcDesignerItem.Designer = Designers.Name;
-//                  //  frmNewItem.Run(lcDesignerItem);
-//                    break;
-//                default:
-//                    MessageBox.Show("Select Required");
-//                    break;
-//            }
-//            UpdateDisplay();

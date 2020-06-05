@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnOpenSelectedDesigner = new System.Windows.Forms.Button();
             this.lblTotalValue = new System.Windows.Forms.Label();
+            this.btnOrders = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lstDesigners
@@ -51,9 +52,9 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(284, 128);
+            this.btnClose.Location = new System.Drawing.Point(285, 211);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(73, 32);
+            this.btnClose.Size = new System.Drawing.Size(73, 36);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -81,9 +82,9 @@
             // 
             // btnOpenSelectedDesigner
             // 
-            this.btnOpenSelectedDesigner.Location = new System.Drawing.Point(284, 90);
+            this.btnOpenSelectedDesigner.Location = new System.Drawing.Point(285, 124);
             this.btnOpenSelectedDesigner.Name = "btnOpenSelectedDesigner";
-            this.btnOpenSelectedDesigner.Size = new System.Drawing.Size(73, 32);
+            this.btnOpenSelectedDesigner.Size = new System.Drawing.Size(73, 36);
             this.btnOpenSelectedDesigner.TabIndex = 8;
             this.btnOpenSelectedDesigner.Text = "Open";
             this.btnOpenSelectedDesigner.UseVisualStyleBackColor = true;
@@ -91,16 +92,27 @@
             // 
             // lblTotalValue
             // 
-            this.lblTotalValue.Location = new System.Drawing.Point(129, 174);
+            this.lblTotalValue.Location = new System.Drawing.Point(164, 170);
             this.lblTotalValue.Name = "lblTotalValue";
             this.lblTotalValue.Size = new System.Drawing.Size(100, 23);
             this.lblTotalValue.TabIndex = 9;
+            // 
+            // btnOrders
+            // 
+            this.btnOrders.Location = new System.Drawing.Point(39, 211);
+            this.btnOrders.Name = "btnOrders";
+            this.btnOrders.Size = new System.Drawing.Size(225, 36);
+            this.btnOrders.TabIndex = 10;
+            this.btnOrders.Text = "Check Orders";
+            this.btnOrders.UseVisualStyleBackColor = true;
+            this.btnOrders.Click += new System.EventHandler(this.btnOrders_Click);
             // 
             // frmDesigners
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 215);
+            this.ClientSize = new System.Drawing.Size(391, 272);
+            this.Controls.Add(this.btnOrders);
             this.Controls.Add(this.lblTotalValue);
             this.Controls.Add(this.btnOpenSelectedDesigner);
             this.Controls.Add(this.label2);
@@ -122,6 +134,7 @@
         private System.Windows.Forms.Button btnOpenSelectedDesigner;
         private System.Windows.Forms.Label lblTotalValue;
         internal System.Windows.Forms.ListBox lstDesigners;
+        private System.Windows.Forms.Button btnOrders;
     }
 }
 
