@@ -83,7 +83,7 @@ namespace SimplyFashionAdmin
                 return await InsertOrUpdateAsync(prOrder, "http://localhost:60064/api/simplyFashion/PostOrder", "POST");
         }
 
-        internal async static Task<string> DeleteOrder(string lcKey)
+        internal async static Task<string> DeleteOrder(int lcKey)
         { // DELETE
             using (HttpClient lcHttpClient = new HttpClient())
             {

@@ -55,19 +55,18 @@ namespace SimplyFashionAdmin
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
-            int lcIndex = lstOrderView.SelectedIndex;
+            clsAllOrders lcIndex = lstOrderView.SelectedItem as clsAllOrders;
             try
             {
-                if (lcIndex >= 0 && MessageBox.Show("Are you sure?", "Deleting Order", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (lcIndex != null && MessageBox.Show("Are you sure?", "Deleting Order", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                 //   MessageBox.Show(await ServiceClient.DeleteOrder(lstOrderView.SelectedItem as clsAllOrders));
+                    MessageBox.Show(await ServiceClient.DeleteOrder(lcIndex.Invoice));
                    
                     frmPendingOrder.Instance.UpdateDisplay();
                 }
             }
             catch (Exception)
             {
-
                 MessageBox.Show("Contact I.T. support");
             }
         }

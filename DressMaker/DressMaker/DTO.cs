@@ -66,7 +66,7 @@ namespace SimplyFashionAdmin
 
         public override string ToString()
         {
-            return SkuCode + "\t" + Date.ToShortDateString() + "\t\t" + CustomerName + "\t\t" + Email + "\t\t" + Quantity.ToString() + "\t\t" + Price;
+            return Invoice.ToString() + "\t" + SkuCode + "\t" + Date.ToShortDateString() + "\t" + CustomerName + "\t\t" + Email + "\t\t" + Quantity.ToString() + "\t\t" + Price;
         }
     }
 }
