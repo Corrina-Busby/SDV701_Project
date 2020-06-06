@@ -121,11 +121,23 @@
     <Compile Include="frmDesigners.Designer.cs">
       <DependentUpon>frmDesigners.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNewItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewItem.Designer.cs">
+      <DependentUpon>frmNewItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPendingOrder.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPendingOrder.Designer.cs">
       <DependentUpon>frmPendingOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsedItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsedItem.Designer.cs">
+      <DependentUpon>frmUsedItem.cs</DependentUpon>
     </Compile>
     <Compile Include="InputBox.cs">
       <SubType>Form</SubType>
@@ -145,8 +157,14 @@
     <EmbeddedResource Include="frmDesigners.resx">
       <DependentUpon>frmDesigners.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNewItem.resx">
+      <DependentUpon>frmNewItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPendingOrder.resx">
       <DependentUpon>frmPendingOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsedItem.resx">
+      <DependentUpon>frmUsedItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>

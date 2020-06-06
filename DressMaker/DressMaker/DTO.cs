@@ -24,11 +24,12 @@ namespace SimplyFashionAdmin
     /// </summary>
     public class clsAllItems
     {
+        // PK
         public string SkuCode { get; set; }
         public string ItemName { get; set; }
         public string ItemDetails { get; set; }
         public decimal BuyPrice { get; set; }
-        public string LastModified { get; set; }
+        public DateTime LastModified { get; set; }
         public int QtyInStock { get; set; }
         public string Introduced { get; set; } // for new: year or season introduced w/e its a string
         public string State { get; set; } // for used: bad fair good
@@ -38,7 +39,7 @@ namespace SimplyFashionAdmin
 
         public override string ToString()
         {
-            return ItemName + "\t\t" + LastModified + "\t\t" + Type + "\t\t" + QtyInStock.ToString() + "\t\t" + BuyPrice;
+            return SkuCode + "\t" + ItemName + "\t\t" + LastModified.ToString() + "\t\t" + Type + "\t\t" + QtyInStock.ToString() + "\t\t" + BuyPrice;
         }
 
         public static readonly string FACTORY_PROMPT = "Enter U for Used Item" + "\n" + "N for New Item";

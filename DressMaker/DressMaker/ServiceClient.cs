@@ -29,6 +29,16 @@ namespace SimplyFashionAdmin
                 return JsonConvert.DeserializeObject<clsDesigners>
                     (await lcHttpClient.GetStringAsync("http://localhost:60064/api/simplyFashion/GetDesigners?Name=" + prDesignerName));
         }
+
+        internal async static Task<string> PostDesignerAsync(clsDesigners prDesigner)
+        { // POST/ INSERT
+            return await InsertOrUpdateAsync(prDesigner, "http://localhost:60064/api/simplyFashion/PostDesigner", "POST");
+        }
+
+        internal async static Task<string> PutDesignerAsync(clsDesigners prDesigner)
+        {
+            return await InsertOrUpdateAsync(prDesigner, "http://localhost:60064/api/simplyFashion/PutDesigners", "PUT");
+        }
         #endregion
 
         #region >)))O>  ITEM methods
@@ -41,7 +51,7 @@ namespace SimplyFashionAdmin
         }
 
         internal async static Task<string> PostItemAsync(clsAllItems prItem)
-        { // POST
+        { // POST/ INSERT
             return await InsertOrUpdateAsync(prItem, "http://localhost:60064/api/simplyFashion/PostItem", "POST");
         }
 
@@ -50,7 +60,7 @@ namespace SimplyFashionAdmin
             return await InsertOrUpdateAsync(prItem, "http://localhost:60064/api/simplyFashion/PutItem", "PUT");
         }
 
-        internal async static Task<string> DeleteItem(clsAllItems lcKey)
+        internal async static Task<string> DeleteItem(string lcKey)
         { // DELETE
             using (HttpClient lcHttpClient = new HttpClient())
             {
@@ -66,7 +76,7 @@ namespace SimplyFashionAdmin
         internal async static Task<string> PutQuantityAsync(clsAllItems prItem)
         { //PUT
             return await InsertOrUpdateAsync(prItem, "http://localhost:60064/api/simplyFashion/PutQuantity", "PUT");
-        }
+        } 
         #endregion
 
         #region >)))O>  Order methods

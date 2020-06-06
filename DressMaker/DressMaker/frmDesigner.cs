@@ -51,9 +51,9 @@ namespace SimplyFashionAdmin
             Designers = prDesigners;
             try
             {
-             //   ItemList = await ServiceClient.GetDesignerItemsAsync(Designers.Name);
-                UpdateDisplay();
+                lblDesignersName.Enabled = string.IsNullOrEmpty(_Designer.Name);
                 UpdateForm();
+                UpdateDisplay();                
             }
             catch (Exception ex)
             {
@@ -81,21 +81,48 @@ namespace SimplyFashionAdmin
             _Designer.Phone = lblPhone.Text;
         }
         // >>}})0> Buttons
-        private void btnClose_Click(object sender, EventArgs e)
+        private async void btnClose_Click(object sender, EventArgs e)
         {
-            Hide();
+
+           if (isValid() == true)
+                try
+                {
+                    pushData();
+                    if (lblDesignersName.Enabled)
+                    {
+                        MessageBox.Show(await ServiceClient.PutDesignerAsync(_Designer));
+                        //MessageBox.Show(await ServiceClient.PostDesignerAsync(_Designer));
+                        frmDesigners.Instance.UpdateDisplay();
+                        lblDesignersName.Enabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sure you want to leave?");
+                        //  MessageBox.Show(await ServiceClient.PutDesignerAsync(_Designer));
+                        Hide();
+                        
+                    }
+                }catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }            
+        }
+
+        private Boolean isValid()
+        {
+            return true;
         }
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
-           int lcIndex = lstItems.SelectedIndex;
+           clsAllItems lcDesignerItem = lstItems.SelectedItem as clsAllItems;
             try
             {
-                    if (lcIndex >= 0 && MessageBox.Show("Are you sure?", "Deleting Items", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (lcDesignerItem != null && MessageBox.Show("Are you sure?", "Deleting Items", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        MessageBox.Show(await ServiceClient.DeleteItem(lstItems.SelectedItem as clsAllItems));
+                        MessageBox.Show(await ServiceClient.DeleteItem(lcDesignerItem.SkuCode));
                         refreshFormFromDB(_Designer.Name);
-                    frmDesigners.Instance.UpdateDisplay();
+                        frmDesigners.Instance.UpdateDisplay();
                     }
             }
             catch (Exception)
@@ -105,26 +132,52 @@ namespace SimplyFashionAdmin
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private async void btnAdd_Click(object sender, EventArgs e)
         {
             string lcReply = new InputBox(clsAllItems.FACTORY_PROMPT).Choice;
             if (!string.IsNullOrEmpty(lcReply)) 
             {
-                clsAllItems lcItemType = clsAllItems.NewDesignerItem(lcReply[0]);
-                if (lcItemType != null)
+                clsAllItems lcItem = clsAllItems.NewDesignerItem(lcReply[0]);
+                if (lcItem != null)
                 {
                     if (lblDesignersName.Enabled)
                     {
-                        lcItemType.Designer = _Designer.Name;
-                        frmItem.DispatchDesignerItemForm(lcItemType);
-                        if (!string.IsNullOrEmpty(lcItemType.Designer))
-                        {
-                            refreshFormFromDB(_Designer.Name);
-                            frmDesigners.Instance.UpdateDisplay();
-                        }
-                        
+                        pushData();
+                        await ServiceClient.PostDesignerAsync(_Designer);
+                        lblDesignersName.Enabled = false;
                     }
+                    lcItem.Designer = _Designer.Name;
+                    frmItem.DispatchDesignerItemForm(lcItem);
+                    if (!string.IsNullOrEmpty(lcItem.ItemName))
+                    {
+                        refreshFormFromDB(_Designer.Name);
+                        frmDesigners.Instance.UpdateDisplay();
+                    }                                          
                 }
+            }
+        }
+
+        private void lstItems_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void btnUpdateItem_Click(object sender, EventArgs e)
+        {
+            clsAllItems lcEditItem = lstItems.SelectedItem as clsAllItems;
+            try
+            {
+                if (lcEditItem != null && MessageBox.Show("Hit Yes to edit this item", "Item has been updated", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    MessageBox.Show(await ServiceClient.PutItemAsync(lcEditItem as clsAllItems));
+                    refreshFormFromDB(_Designer.Name);
+                    frmDesigner.Instance.UpdateDisplay();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

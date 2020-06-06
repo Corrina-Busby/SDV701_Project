@@ -25,7 +25,7 @@ namespace SimplyFashionApi
         public string ItemName { get; set; }
         public string ItemDetails { get; set; }
         public decimal BuyPrice { get; set; }
-        public string LastModified { get; set; }
+        public DateTime LastModified { get; set; }
         public int QtyInStock { get; set; }
         public string Introduced { get; set; }
         public string State { get; set; }

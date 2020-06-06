@@ -56,10 +56,65 @@ namespace SimplyFashionApi
 
         #endregion
 
+        #region >>}}}0> INSERTS designer with the POST protocol 
+
+        public string PostDesigner(clsDesigners prDesigners)
+        {   // POST = INSERT
+            try
+            {
+                int lcRecCount = clsDbConnection.Execute(
+                    "INSERT INTO designer (name, phone) " +
+                    "VALUES (@name, @phone)",
+                    prepareDesignersParameters(prDesigners));
+                if (lcRecCount == 1)
+                    return "One Designer Added";
+                else
+                    return "Unexpected designer insert count: " + lcRecCount;
+            }
+            catch (Exception ex)
+            {
+                return "001 " + ex.GetBaseException().Message;
+            }
+        }
+        #endregion
+        #region >>)))*> PREPARE DESIGNERS PARAMETERS
+
+        private Dictionary<string, object> prepareDesignersParameters(clsDesigners prDesigners)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(2);
+            par.Add("name", prDesigners.Name);
+            par.Add("phone", prDesigners.Phone);
+            return par;
+        }
+        #endregion
+
+        #region >>}}}o> UPDATE Designer using the PUT protocol 
+
+        public string PutDesigners(clsDesigners prDesigners)
+        {   // UPDATE
+            try
+            {
+                int lcRecCount = clsDbConnection.Execute(
+                    "UPDATE designer " +
+                    "SET phone = @phone " +
+                    "WHERE name = @name",
+                    prepareDesignersParameters(prDesigners));
+                if (lcRecCount == 1)
+                    return "Designers Updated";
+                else
+                    return "Unexpected Designers update count: " + lcRecCount;
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
+        }
+        #endregion
+
         //.////////////./
         ///// Items /////
         //.////////////./
-  
+
         #region >>}}}*> GET a Designers DESIGNER item
 
         public List<string> GetDesignerItemNames(string Designer)
@@ -106,7 +161,7 @@ namespace SimplyFashionApi
                 ItemName = Convert.ToString(prDataRow["itemName"]),
                 ItemDetails = Convert.ToString(prDataRow["itemDetails"]),
                 BuyPrice = Convert.ToDecimal(prDataRow["buyPrice"]),
-                LastModified = Convert.ToString(prDataRow["lastModified"]),
+                LastModified = Convert.ToDateTime(prDataRow["lastModified"]),
                 QtyInStock = Convert.ToInt32(prDataRow["qtyInStock"]),
                 Introduced = Convert.ToString(prDataRow["introduced"]),
                 State = Convert.ToString(prDataRow["state"]),
@@ -145,7 +200,7 @@ namespace SimplyFashionApi
                 ItemName = Convert.ToString(prDataRow["itemName"]),
                 ItemDetails = Convert.ToString(prDataRow["itemDetails"]),
                 BuyPrice = Convert.ToDecimal(prDataRow["buyPrice"]),
-                LastModified = Convert.ToString(prDataRow["lastModified"]),
+                LastModified = Convert.ToDateTime(prDataRow["lastModified"]),
                 QtyInStock = Convert.ToInt32(prDataRow["qtyInStock"]),
                 Introduced = Convert.ToString(prDataRow["introduced"]),
                 State = Convert.ToString(prDataRow["state"]),
@@ -162,7 +217,7 @@ namespace SimplyFashionApi
         // `condition` now exhanged to state due to MySql workbench issues!!!
 
         public string PostItem(clsAllItems prItem)
-        {   // POST
+        {   // POST = INSERT
             try
             {
                 int lcRecCount = clsDbConnection.Execute(
@@ -190,7 +245,7 @@ namespace SimplyFashionApi
             par.Add("itemName", prItem.ItemName);
             par.Add("itemDetails", prItem.ItemDetails);
             par.Add("buyPrice", prItem.BuyPrice);
-            par.Add("lastModified", prItem.LastModified);
+            par.Add("lastModified", DateTime.Now);
             par.Add("qtyInStock", prItem.QtyInStock);
             par.Add("introduced", prItem.Introduced);
             par.Add("state", prItem.State);
@@ -213,9 +268,9 @@ namespace SimplyFashionApi
                     "WHERE skuCode = @skuCode",
                     prepareItemParameters(prItem));
                 if (lcRecCount == 1)
-                    return "One artwork added";
+                    return "Designer Item(s) added";
                 else
-                    return "Unexpected artwork update count: " + lcRecCount;
+                    return "Unexpected Item update count: " + lcRecCount;
             }
             catch (Exception ex)
             {

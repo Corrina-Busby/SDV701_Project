@@ -40,7 +40,7 @@ namespace SimplyFashionAdmin
             }
         }
 
-        public decimal TotalSales()
+        private decimal TotalSales()
         {
             decimal lcTotalSales = 0;
             foreach (clsAllOrders lcOrders in _OrderList)
@@ -55,12 +55,12 @@ namespace SimplyFashionAdmin
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
-            clsAllOrders lcIndex = lstOrderView.SelectedItem as clsAllOrders;
+            clsAllOrders lcOrder = lstOrderView.SelectedItem as clsAllOrders;
             try
             {
-                if (lcIndex != null && MessageBox.Show("Are you sure?", "Deleting Order", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (lcOrder != null && MessageBox.Show("Are you sure?", "Please wait while we Delete your Order", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show(await ServiceClient.DeleteOrder(lcIndex.Invoice));
+                    MessageBox.Show(await ServiceClient.DeleteOrder(lcOrder.Invoice));
                    
                     frmPendingOrder.Instance.UpdateDisplay();
                 }
