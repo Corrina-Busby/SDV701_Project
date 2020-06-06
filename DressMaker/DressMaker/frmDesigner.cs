@@ -97,10 +97,11 @@ namespace SimplyFashionAdmin
                     }
                     else
                     {
-                        MessageBox.Show("Sure you want to leave?");
+                        MessageBox.Show("You are about to leave this page");
                         //  MessageBox.Show(await ServiceClient.PutDesignerAsync(_Designer));
-                        Hide();
                         
+                        frmDesigners.Instance.Show();
+                        frmDesigner.Instance.Hide();
                     }
                 }catch (Exception ex)
                 {
@@ -162,25 +163,23 @@ namespace SimplyFashionAdmin
 
         }
 
-        private async void btnUpdateItem_Click(object sender, EventArgs e)
+        private void btnUpdateItem_Click(object sender, EventArgs e)
         {
-            clsAllItems lcEditItem = lstItems.SelectedItem as clsAllItems;
+            clsAllItems lcUpdateItem = lstItems.SelectedItem as clsAllItems;
+
             try
             {
-                if (lcEditItem != null && MessageBox.Show("Hit Yes to edit this item", "Item has been updated", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (lcUpdateItem != null && MessageBox.Show("Hit Yes to edit this item", "Item has been updated", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show(await ServiceClient.PutItemAsync(lcEditItem as clsAllItems));
-                    refreshFormFromDB(_Designer.Name);
-                    frmDesigner.Instance.UpdateDisplay();
+                    frmItem.DispatchDesignerItemForm(lcUpdateItem as clsAllItems);
+                    UpdateDisplay();
                 }
+
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
     }
 }
-
-

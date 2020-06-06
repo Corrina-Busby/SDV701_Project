@@ -268,7 +268,7 @@ namespace SimplyFashionApi
                     "WHERE skuCode = @skuCode",
                     prepareItemParameters(prItem));
                 if (lcRecCount == 1)
-                    return "Designer Item(s) added";
+                    return "Designer Item Updated";
                 else
                     return "Unexpected Item update count: " + lcRecCount;
             }

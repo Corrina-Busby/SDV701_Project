@@ -13,6 +13,7 @@ using SimplyFashionAdmin;
 /// <summary>
 /// Displays the Designers name, retrieves from database 
 /// Select a designer to view specific items etc to that designer
+/// Need to hide this form on opening another form and show when exiting the frmdesigner
 /// </summary>
 namespace SimplyFashionAdmin
 {
@@ -60,6 +61,7 @@ namespace SimplyFashionAdmin
              try
             {
                 frmDesigner.Run(lstDesigners.SelectedItem as string);
+                    frmDesigners.Instance.Hide();
             }
             catch (Exception ex)
             {
