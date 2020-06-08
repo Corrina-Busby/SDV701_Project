@@ -41,6 +41,8 @@
             this.nudQuantity = new System.Windows.Forms.NumericUpDown();
             this.nudPrice = new System.Windows.Forms.NumericUpDown();
             this.lblDesignersName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblCreationDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             this.SuspendLayout();
@@ -172,11 +174,32 @@
             this.lblDesignersName.TabIndex = 22;
             this.lblDesignersName.Text = "Designers Name";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(320, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 18);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Last Date Modified:";
+            // 
+            // lblCreationDate
+            // 
+            this.lblCreationDate.AutoSize = true;
+            this.lblCreationDate.Location = new System.Drawing.Point(473, 21);
+            this.lblCreationDate.Name = "lblCreationDate";
+            this.lblCreationDate.Size = new System.Drawing.Size(105, 17);
+            this.lblCreationDate.TabIndex = 25;
+            this.lblCreationDate.Text = "ReadOnly Date";
+            // 
             // frmItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(689, 459);
+            this.Controls.Add(this.lblCreationDate);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDesignersName);
             this.Controls.Add(this.nudPrice);
             this.Controls.Add(this.nudQuantity);
@@ -213,5 +236,7 @@
         private System.Windows.Forms.NumericUpDown nudQuantity;
         private System.Windows.Forms.NumericUpDown nudPrice;
         private System.Windows.Forms.Label lblDesignersName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCreationDate;
     }
 }

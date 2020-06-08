@@ -56,6 +56,7 @@ namespace SimplyFashionAdmin
             txtSKU.Text = _DesignerItem.SkuCode;
             lblDesignersName.Enabled = string.IsNullOrEmpty(_DesignerItem.SkuCode);
             lblDesignersName.Text = _DesignerItem.Designer;
+            lblCreationDate.Text = _DesignerItem.LastModified.ToShortDateString();
             txtDescription.Text = _DesignerItem.ItemDetails;
             txtItemName.Text = _DesignerItem.ItemName;
             nudQuantity.Value = _DesignerItem.QtyInStock;

@@ -102,6 +102,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsDateComparer.cs" />
+    <Compile Include="clsSkuComparer.cs" />
     <Compile Include="DTO.cs" />
     <Compile Include="frmDesigner.cs">
       <SubType>Form</SubType>

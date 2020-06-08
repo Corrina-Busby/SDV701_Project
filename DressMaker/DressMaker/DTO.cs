@@ -5,8 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace SimplyFashionAdmin
 {
+    
     /// <summary>
     /// Info for Designer
     /// </summary>
@@ -16,6 +18,7 @@ namespace SimplyFashionAdmin
         public string Phone { get; set; }
 
         public List<clsAllItems> ItemList { get; set; }
+  
         //public decimal TotalValue { get {return  } }
     }
 
@@ -37,9 +40,15 @@ namespace SimplyFashionAdmin
         // Foreign Key
         public string Designer { get; set; }
 
+        // taken from lastyears sdv6 car rentals app
         public override string ToString()
         {
-            return SkuCode + "\t" + ItemName + "\t\t" + LastModified.ToString() + "\t\t" + Type + "\t\t" + QtyInStock.ToString() + "\t\t" + BuyPrice;
+            return string.Format("{0, -20}", SkuCode) +
+                   string.Format("{0, -20}", ItemName) +
+                   string.Format("{0, -30}", LastModified.ToString()) +
+                   string.Format("{0, -20}", Type) +
+                   string.Format("{0, -20}", QtyInStock.ToString()) +
+                   string.Format("{0, -20}", BuyPrice);
         }
 
         public static readonly string FACTORY_PROMPT = "Enter U for Used Item" + "\n" + "N for New Item";
@@ -48,8 +57,8 @@ namespace SimplyFashionAdmin
         {
             return new clsAllItems() { Type = Char.ToUpper(prChoice)};
         }
-
         //public List<clsAllOrders> OrderList { get; set; }
+
     }
     /// <summary>
     /// Info for all orders 
@@ -70,5 +79,6 @@ namespace SimplyFashionAdmin
             return Invoice.ToString() + "\t" + SkuCode + "\t" + Date.ToShortDateString() + "\t" + CustomerName + "\t\t" + Email + "\t\t" + Quantity.ToString() + "\t\t" + Price;
         }
     }
+
 }
 

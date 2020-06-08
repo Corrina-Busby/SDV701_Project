@@ -12,12 +12,16 @@ namespace SimplyFashionAdmin
     public sealed partial class frmDesigner : Form
     {
         private clsDesigners _Designer;
-        private List<clsAllItems> _ItemList;
+        //  List<clsAllItems> _ItemList;
         private List<clsAllOrders> _OrderList;
 
         public clsDesigners Designers { get => _Designer; set => _Designer = value; }
-        public List<clsAllItems> ItemList { get => _ItemList; set => _ItemList = value; } 
+        //public List<clsAllItems> ItemList { get => _ItemList; set => _ItemList = value; } 
         public List<clsAllOrders> OrderList { get => _OrderList; set => _OrderList = value; }
+
+        private SortOption _SortBy;
+
+       // private List<clsAllItems> _ItemsList = new List<clsAllItems>();
 
         // >>}}}0> Singleton
         public static readonly frmDesigner Instance = new frmDesigner();
@@ -25,6 +29,24 @@ namespace SimplyFashionAdmin
         private frmDesigner()
         {
             InitializeComponent();
+        }
+
+        public void SortBySKU()
+        {
+            Designers.ItemList.Sort(clsSkuComparer.Instance);
+            _SortBy = SortOption.SKU;
+        }
+
+        public void SortByDate()
+        {
+            Designers.ItemList.Sort(clsDateComparer.Instance);
+            _SortBy = SortOption.DATE;
+        }
+
+        public SortOption SortBy
+        {
+            get { return _SortBy; }
+            set { _SortBy = value; }
         }
 
         // >>}}}*> Methods
@@ -64,10 +86,32 @@ namespace SimplyFashionAdmin
         // >>}}}0> Updates
         private void UpdateDisplay()
         {
+
+            
+
+            if (SortBy == SortOption.SKU)
+            {
+                SortBySKU();
+                //rbBySKU.Checked = true;
+            }
+            else if (SortBy == SortOption.DATE)
+            {
+                SortByDate();
+
+                //rbByDate.Checked = true;
+            }
             lstItems.DataSource = null;
             if (_Designer.ItemList != null)
                 lstItems.DataSource = _Designer.ItemList;
+            // lblTotal.Text = TotalSales().ToString();
         }
+        //private decimal TotalSales()
+        //{
+        //    decimal lcTotalSales = 0;
+        //    foreach (clsAllItems lcItemList in _ItemsList)
+        //        lcTotalSales += lcItemList.BuyPrice;
+        //    return lcTotalSales;
+        //}
 
         public void UpdateForm()
         {
@@ -160,10 +204,15 @@ namespace SimplyFashionAdmin
 
         private void lstItems_DoubleClick(object sender, EventArgs e)
         {
-
+            UpdateItem();
         }
 
         private void btnUpdateItem_Click(object sender, EventArgs e)
+        {
+            UpdateItem();
+        }
+
+        private void UpdateItem()
         {
             clsAllItems lcUpdateItem = lstItems.SelectedItem as clsAllItems;
 
@@ -172,7 +221,7 @@ namespace SimplyFashionAdmin
                 if (lcUpdateItem != null && MessageBox.Show("Hit Yes to edit this item", "Item has been updated", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     frmItem.DispatchDesignerItemForm(lcUpdateItem as clsAllItems);
-                    UpdateDisplay();
+                    refreshFormFromDB(_Designer.Name);
                 }
 
             }
@@ -181,5 +230,28 @@ namespace SimplyFashionAdmin
                 throw;
             }
         }
+
+        private void rbBySKU_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbBySKU.Checked)
+            {
+                SortBy = SortOption.SKU;
+                UpdateDisplay();
+            }       
+        }
+
+        private void rbByDate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbByDate.Checked)
+            {
+                SortBy = SortOption.DATE;
+                UpdateDisplay();
+            }
+        }
+    }
+
+    public enum SortOption {
+        SKU,
+        DATE
     }
 }

@@ -43,28 +43,30 @@
             this.lblContactTitle = new System.Windows.Forms.Label();
             this.optSort = new System.Windows.Forms.GroupBox();
             this.rbByDate = new System.Windows.Forms.RadioButton();
-            this.rbByType = new System.Windows.Forms.RadioButton();
+            this.rbBySKU = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.optSort.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstItems
             // 
+            this.lstItems.Font = new System.Drawing.Font("Consolas", 8.139131F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstItems.FormattingEnabled = true;
-            this.lstItems.ItemHeight = 16;
+            this.lstItems.ItemHeight = 15;
             this.lstItems.Location = new System.Drawing.Point(31, 128);
             this.lstItems.Name = "lstItems";
-            this.lstItems.Size = new System.Drawing.Size(835, 116);
+            this.lstItems.Size = new System.Drawing.Size(976, 109);
             this.lstItems.TabIndex = 0;
             this.lstItems.DoubleClick += new System.EventHandler(this.lstItems_DoubleClick);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(664, 321);
+            this.btnClose.Location = new System.Drawing.Point(777, 321);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(202, 31);
+            this.btnClose.Size = new System.Drawing.Size(230, 31);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Exit";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -72,9 +74,9 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(244, 321);
+            this.btnDelete.Location = new System.Drawing.Point(267, 321);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(202, 31);
+            this.btnDelete.Size = new System.Drawing.Size(230, 31);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -82,9 +84,9 @@
             // 
             // btnUpdateItem
             // 
-            this.btnUpdateItem.Location = new System.Drawing.Point(452, 321);
+            this.btnUpdateItem.Location = new System.Drawing.Point(541, 321);
             this.btnUpdateItem.Name = "btnUpdateItem";
-            this.btnUpdateItem.Size = new System.Drawing.Size(202, 31);
+            this.btnUpdateItem.Size = new System.Drawing.Size(230, 31);
             this.btnUpdateItem.TabIndex = 3;
             this.btnUpdateItem.Text = "Update Item";
             this.btnUpdateItem.UseVisualStyleBackColor = true;
@@ -94,7 +96,7 @@
             // 
             this.btnAdd.Location = new System.Drawing.Point(31, 321);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(202, 31);
+            this.btnAdd.Size = new System.Drawing.Size(230, 31);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add Item";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -104,11 +106,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(677, 251);
+            this.label1.Location = new System.Drawing.Point(735, 249);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 21);
+            this.label1.Size = new System.Drawing.Size(151, 21);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Total Value:";
+            this.label1.Text = "Total  Stock Value:";
             // 
             // label2
             // 
@@ -124,11 +126,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(788, 104);
+            this.label3.Location = new System.Drawing.Point(773, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 21);
+            this.label3.Size = new System.Drawing.Size(85, 21);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Price";
+            this.label3.Text = "Unit Price";
             // 
             // label4
             // 
@@ -182,9 +184,9 @@
             // optSort
             // 
             this.optSort.Controls.Add(this.rbByDate);
-            this.optSort.Controls.Add(this.rbByType);
+            this.optSort.Controls.Add(this.rbBySKU);
             this.optSort.Font = new System.Drawing.Font("Microsoft Tai Le", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.optSort.Location = new System.Drawing.Point(690, 20);
+            this.optSort.Location = new System.Drawing.Point(833, 20);
             this.optSort.Name = "optSort";
             this.optSort.Size = new System.Drawing.Size(174, 60);
             this.optSort.TabIndex = 20;
@@ -199,15 +201,17 @@
             this.rbByDate.TabIndex = 1;
             this.rbByDate.Text = "Date";
             this.rbByDate.UseVisualStyleBackColor = true;
+            this.rbByDate.CheckedChanged += new System.EventHandler(this.rbByDate_CheckedChanged);
             // 
-            // rbByType
+            // rbBySKU
             // 
-            this.rbByType.Location = new System.Drawing.Point(20, 21);
-            this.rbByType.Name = "rbByType";
-            this.rbByType.Size = new System.Drawing.Size(61, 24);
-            this.rbByType.TabIndex = 0;
-            this.rbByType.Text = "Type";
-            this.rbByType.UseVisualStyleBackColor = true;
+            this.rbBySKU.Location = new System.Drawing.Point(20, 21);
+            this.rbBySKU.Name = "rbBySKU";
+            this.rbBySKU.Size = new System.Drawing.Size(61, 24);
+            this.rbBySKU.TabIndex = 0;
+            this.rbBySKU.Text = "SKU";
+            this.rbBySKU.UseVisualStyleBackColor = true;
+            this.rbBySKU.CheckedChanged += new System.EventHandler(this.rbBySKU_CheckedChanged);
             // 
             // label6
             // 
@@ -221,7 +225,7 @@
             // 
             // lblTotal
             // 
-            this.lblTotal.Location = new System.Drawing.Point(801, 251);
+            this.lblTotal.Location = new System.Drawing.Point(932, 249);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(55, 23);
             this.lblTotal.TabIndex = 22;
@@ -237,11 +241,22 @@
             this.label7.TabIndex = 23;
             this.label7.Text = "SKU";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 10.01739F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(890, 104);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 21);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Total Value";
+            // 
             // frmDesigner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 399);
+            this.ClientSize = new System.Drawing.Size(1042, 399);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label6);
@@ -286,7 +301,8 @@
         private System.Windows.Forms.Label label6;
         internal System.Windows.Forms.Label lblTotal;
         internal System.Windows.Forms.RadioButton rbByDate;
-        internal System.Windows.Forms.RadioButton rbByType;
+        internal System.Windows.Forms.RadioButton rbBySKU;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

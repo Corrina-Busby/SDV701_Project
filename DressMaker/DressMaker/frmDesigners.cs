@@ -39,6 +39,7 @@ namespace SimplyFashionAdmin
             {
                 lstDesigners.DataSource = null;
                 lstDesigners.DataSource = await ServiceClient.GetDesignersNamesAsync();
+
              //   lblTotalValue.Text = Convert.ToString(GetTotalValue());
             }
             catch (Exception ex)
@@ -88,7 +89,6 @@ namespace SimplyFashionAdmin
         {
             frmPendingOrder.Instance.Show();           
         }
-
     }
 }
 

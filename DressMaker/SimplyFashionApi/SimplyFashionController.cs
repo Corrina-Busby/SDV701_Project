@@ -143,7 +143,7 @@ namespace SimplyFashionApi
             DataTable lcResult = clsDbConnection.GetDataTable(
                 "SELECT * " + 
                 "FROM item " +
-                "WHERE designer = @designer", 
+                "WHERE designer = @designer",
                 par);
             List<clsAllItems> lcItemList = new List<clsAllItems>();
 
