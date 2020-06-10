@@ -1,4 +1,4 @@
-﻿using Org.BouncyCastle.Bcpg;
+﻿//using Org.BouncyCastle.Bcpg;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace SimplyFashionAdmin
+namespace SimplyFashionCustomer
 {
     
     /// <summary>
@@ -43,12 +43,13 @@ namespace SimplyFashionAdmin
         // taken from lastyears sdv6 car rentals app
         public override string ToString()
         {
-            return string.Format("{0, -20}", SkuCode) +
-                   string.Format("{0, -20}", ItemName) +
-                   string.Format("{0, -30}", LastModified.ToString()) +
-                   string.Format("{0, -20}", Type) +
-                   string.Format("{0, -20}", QtyInStock.ToString()) +
-                   string.Format("{0, -20}", BuyPrice.ToString("C"));
+            //return string.Format("{0, -20}", SkuCode) +
+            //       string.Format("{0, -20}", ItemName) +
+            //       string.Format("{0, -30}", LastModified.ToString()) +
+            //       string.Format("{0, -20}", Type) +
+            //       string.Format("{0, -20}", QtyInStock.ToString()) +
+            //       string.Format("{0, -20}", BuyPrice);
+            return  Designer + ItemName + " " + Type + " " + BuyPrice.ToString("C");
         }
 
         public static readonly string FACTORY_PROMPT = "Enter U for Used Item" + "\n" + "N for New Item";
@@ -76,7 +77,7 @@ namespace SimplyFashionAdmin
 
         public override string ToString()
         {
-            return Invoice.ToString() + "\t" + SkuCode + "\t" + Date.ToShortDateString() + "\t" + CustomerName + "\t\t" + Email + "\t\t" + Quantity.ToString() + "\t\t" + Price.ToString("C");
+            return Invoice.ToString() + "\t" + SkuCode + "\t" + Date.ToString("d") + "\t" + CustomerName + "\t\t" + Email + "\t\t" + Quantity.ToString() + "\t\t" + Price.ToString("C");
         }
     }
 

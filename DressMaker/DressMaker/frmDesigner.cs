@@ -85,10 +85,7 @@ namespace SimplyFashionAdmin
 
         // >>}}}0> Updates
         private void UpdateDisplay()
-        {
-
-            
-
+        {          
             if (SortBy == SortOption.SKU)
             {
                 SortBySKU();
@@ -218,7 +215,7 @@ namespace SimplyFashionAdmin
 
             try
             {
-                if (lcUpdateItem != null && MessageBox.Show("Hit Yes to edit this item", "Item has been updated", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (lcUpdateItem != null)
                 {
                     frmItem.DispatchDesignerItemForm(lcUpdateItem as clsAllItems);
                     refreshFormFromDB(_Designer.Name);
