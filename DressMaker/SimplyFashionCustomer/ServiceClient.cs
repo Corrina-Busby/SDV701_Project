@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +20,7 @@ namespace SimplyFashionCustomer
                 return JsonConvert.DeserializeObject<List<string>>
                     (await lcHttpClient.GetStringAsync("http://localhost:60064/api/simplyFashion/GetDesignersNames"));
         }
-    
+
         internal static async Task<clsDesigners> GetDesignerAsync(string prDesignerName)
         { // GET
             using (HttpClient lcHttpClient = new HttpClient())
@@ -76,7 +74,7 @@ namespace SimplyFashionCustomer
         internal async static Task<string> PutQuantityAsync(clsAllItems prItem)
         { //PUT
             return await InsertOrUpdateAsync(prItem, "http://localhost:60064/api/simplyFashion/PutQuantity", "PUT");
-        } 
+        }
         #endregion
 
         #region >)))O>  Order methods
@@ -90,7 +88,7 @@ namespace SimplyFashionCustomer
 
         internal async static Task<string> PostOrderAsync(clsAllOrders prOrder)
         { // POST
-                return await InsertOrUpdateAsync(prOrder, "http://localhost:60064/api/simplyFashion/PostOrder", "POST");
+            return await InsertOrUpdateAsync(prOrder, "http://localhost:60064/api/simplyFashion/PostOrder", "POST");
         }
 
         internal async static Task<string> DeleteOrder(int lcKey)

@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtCondition = new System.Windows.Forms.TextBox();
-            this.chkGood = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -50,28 +49,16 @@
             this.txtCondition.Size = new System.Drawing.Size(100, 22);
             this.txtCondition.TabIndex = 24;
             // 
-            // chkGood
-            // 
-            this.chkGood.AutoSize = true;
-            this.chkGood.Location = new System.Drawing.Point(207, 358);
-            this.chkGood.Name = "chkGood";
-            this.chkGood.Size = new System.Drawing.Size(62, 21);
-            this.chkGood.TabIndex = 25;
-            this.chkGood.Text = "Good";
-            this.chkGood.UseVisualStyleBackColor = true;
-            // 
             // frmUsedItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.ClientSize = new System.Drawing.Size(689, 459);
-            this.Controls.Add(this.chkGood);
             this.Controls.Add(this.txtCondition);
             this.Controls.Add(this.label1);
             this.Name = "frmUsedItem";
             this.Text = "Used Designer Item";
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.txtCondition, 0);
-            this.Controls.SetChildIndex(this.chkGood, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,6 +68,5 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCondition;
-        private System.Windows.Forms.CheckBox chkGood;
     }
 }

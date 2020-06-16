@@ -280,15 +280,15 @@ namespace SimplyFashionApi
         #endregion
 
         #region >>}}}*> UPDATE Quantity using the PUT protocol
-        public string PutQuantity(clsAllItems prItem)
+        public string PutQuantity(clsAllOrders prOrder)
         {   // UPDATE
             try
             {
                 int lcRecCount = clsDbConnection.Execute(
                     "UPDATE item " +
-                    "SET qtyInStock = @qtyInStock " +                    
+                    "SET qtyInStock =  qtyInStock - @qty " +                    
                     "WHERE skuCode = @skuCode",
-                    prepareItemParameters(prItem));
+                    preparePutQuantityParameters(prOrder)); ;
                 if (lcRecCount == 1)
                     return "One Quantity added";
                 else
@@ -379,7 +379,10 @@ namespace SimplyFashionApi
                         prepareOrderParameters(prOrder));
 
                 if (lcRecCount == 1)
+                {
+                    PutQuantity(prOrder);
                     return "One Order Added";
+                }     
                 else
                     return "Unexpected order update count: " + lcRecCount;
             }
@@ -437,5 +440,13 @@ namespace SimplyFashionApi
             return par;
         }
         #endregion
+
+        private Dictionary<string, object> preparePutQuantityParameters(clsAllOrders prOrder)
+        {
+            Dictionary<string, object> par = new Dictionary<string, object>(1);
+            par.Add("qty", prOrder.Quantity);
+            par.Add("skuCode", prOrder.SkuCode);
+            return par;
+        }
     }
 }

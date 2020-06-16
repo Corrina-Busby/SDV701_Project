@@ -1,18 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Devices.PointOfService.Provider;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 
@@ -28,9 +17,9 @@ namespace SimplyFashionCustomer
     {
         private delegate void LoadDesignerItemControlDelegate(clsAllItems prDesignerItem);
         private Dictionary<char, Delegate> _DesignerItemContent;
-        private void DispatchDesignerItemContent (clsAllItems prDesignerItem)
+        private void DispatchDesignerItemContent(clsAllItems prDesignerItem)
         {
-           _DesignerItemContent[prDesignerItem.Type].DynamicInvoke(prDesignerItem);
+            _DesignerItemContent[prDesignerItem.Type].DynamicInvoke(prDesignerItem);
             UpdateForm();
         }
 
@@ -48,7 +37,7 @@ namespace SimplyFashionCustomer
             lblItemDetails.Text = DesignerItem.ItemDetails;
             lblQtyInStock.Text = DesignerItem.QtyInStock.ToString();
             lblNzPrice.Text = DesignerItem.BuyPrice.ToString();
-          //  (ctcDesignerItemSpecs.Content as IDesignerControl).UpdateControl(DesignerItem);
+
         }
 
         // Constructor
@@ -56,7 +45,7 @@ namespace SimplyFashionCustomer
         {
             InitializeComponent();
 
-            _DesignerItemContent = new Dictionary<char, Delegate> 
+            _DesignerItemContent = new Dictionary<char, Delegate>
             {
                 {'N', new LoadDesignerItemControlDelegate(RunNewItem)},
                 {'U', new LoadDesignerItemControlDelegate(RunUsedItem)}
@@ -67,7 +56,7 @@ namespace SimplyFashionCustomer
         // Buttons
         private void btnOrder_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(pgPendingOrder), DesignerItem.SkuCode);
+            Frame.Navigate(typeof(pgOrder), DesignerItem);
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

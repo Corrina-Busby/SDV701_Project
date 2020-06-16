@@ -1,14 +1,11 @@
 ﻿//using Org.BouncyCastle.Bcpg;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace SimplyFashionCustomer
 {
-    
+
     /// <summary>
     /// Info for Designer
     /// </summary>
@@ -18,7 +15,7 @@ namespace SimplyFashionCustomer
         public string Phone { get; set; }
 
         public List<clsAllItems> ItemList { get; set; }
-  
+
         //public decimal TotalValue { get {return  } }
     }
 
@@ -49,14 +46,15 @@ namespace SimplyFashionCustomer
             //       string.Format("{0, -20}", Type) +
             //       string.Format("{0, -20}", QtyInStock.ToString()) +
             //       string.Format("{0, -20}", BuyPrice);
-            return  Designer + ItemName + " " + Type + " " + BuyPrice.ToString("C");
+
+            return Designer + ItemName + " " + Type + " " + BuyPrice.ToString("C");
         }
 
         public static readonly string FACTORY_PROMPT = "Enter U for Used Item" + "\n" + "N for New Item";
 
         public static clsAllItems NewDesignerItem(char prChoice)
         {
-            return new clsAllItems() { Type = Char.ToUpper(prChoice)};
+            return new clsAllItems() { Type = Char.ToUpper(prChoice) };
         }
         //public List<clsAllOrders> OrderList { get; set; }
 

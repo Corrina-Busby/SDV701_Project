@@ -26,7 +26,7 @@
         <ListBox x:Name="lstDesigners" Margin="136,270,124,269" DoubleTapped="lstDesigners_DoubleTapped"></ListBox>
 
         <!--error msg-->
-        <TextBlock x:Name="txbMessage" Margin="32,0,357,132" TextAlignment="Left" Text="Message" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="80" FontSize="39"/>
+        <TextBlock x:Name="txbMessage" Margin="32,0,357,132" TextAlignment="Left" Text="" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="80" FontSize="39"/>
 
         <!--Go to selected Designers designs-->
         <Button x:Name="btnOpenSelectedDesigners" Content="Shop Now --->" Margin="443,542,0,0" VerticalAlignment="Top" Height="83" Width="302" Background="#FF8F4000" FontSize="38" Foreground="White" Click="btnOpenSelectedDesigners_Click" RequestedTheme="Dark"/>

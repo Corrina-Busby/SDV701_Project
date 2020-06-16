@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -24,10 +15,10 @@ namespace SimplyFashionCustomer
     {
         // Variables
         private clsDesigners _Designer;
-        private List<clsAllItems> _ItemList;
+        //private List<clsAllItems> _ItemList;
 
-   //     public clsDesigners DesignerObject { get => _Designer; set => _Designer = value; }
-        public List<clsAllItems> ItemList { get => _ItemList; set => _ItemList = value; }
+        //     public clsDesigners DesignerObject { get => _Designer; set => _Designer = value; }
+        //public List<clsAllItems> ItemList { get => _ItemList; set => _ItemList = value; }
 
         // Constructor
         public pgDesigner()
@@ -49,14 +40,15 @@ namespace SimplyFashionCustomer
                         _Designer = await ServiceClient.GetDesignerAsync(lcDesignersName);
                         UpdateForm();
                     }
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     lblMessage.Text = ex.GetBaseException().Message;
                 }
         }
 
         // Methods
-        private async void SetItemList()
+        private void SetItemList()
         {
             lstDesigner.ItemsSource = null;
             try
@@ -91,6 +83,7 @@ namespace SimplyFashionCustomer
             {
                 //string lcDesignerItemId = ItemList[lstDesigner.SelectedIndex].ItemName;
                 //Frame.Navigate(typeof(pgDesignerItem), lcDesignerItemId);
+
                 Frame.Navigate(typeof(pgDesignerItem), lstDesigner.SelectedItem as clsAllItems);
             }
             catch (Exception ex)
@@ -100,7 +93,7 @@ namespace SimplyFashionCustomer
         }
 
         // Update
-        private async void UpdateForm()
+        private void UpdateForm()
         {
             if (_Designer != null)  //  why is designer null upon return from item page???
             {

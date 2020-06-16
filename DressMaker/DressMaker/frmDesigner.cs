@@ -13,11 +13,11 @@ namespace SimplyFashionAdmin
     {
         private clsDesigners _Designer;
         //  List<clsAllItems> _ItemList;
-        private List<clsAllOrders> _OrderList;
+      //  private List<clsAllOrders> _OrderList;
 
         public clsDesigners Designers { get => _Designer; set => _Designer = value; }
         //public List<clsAllItems> ItemList { get => _ItemList; set => _ItemList = value; } 
-        public List<clsAllOrders> OrderList { get => _OrderList; set => _OrderList = value; }
+      //  public List<clsAllOrders> OrderList { get => _OrderList; set => _OrderList = value; }
 
         private SortOption _SortBy;
 
