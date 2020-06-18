@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Google.Protobuf.WellKnownTypes;
-using SimplyFashionAdmin;
 
 /// <summary>
 /// Displays the Designers name, retrieves from database 

@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 /// <summary>
@@ -12,16 +11,11 @@ namespace SimplyFashionAdmin
     public sealed partial class frmDesigner : Form
     {
         private clsDesigners _Designer;
-        //  List<clsAllItems> _ItemList;
-      //  private List<clsAllOrders> _OrderList;
 
         public clsDesigners Designers { get => _Designer; set => _Designer = value; }
-        //public List<clsAllItems> ItemList { get => _ItemList; set => _ItemList = value; } 
-      //  public List<clsAllOrders> OrderList { get => _OrderList; set => _OrderList = value; }
 
         private SortOption _SortBy;
 
-       // private List<clsAllItems> _ItemsList = new List<clsAllItems>();
 
         // >>}}}0> Singleton
         public static readonly frmDesigner Instance = new frmDesigner();
@@ -102,6 +96,9 @@ namespace SimplyFashionAdmin
                 lstItems.DataSource = _Designer.ItemList;
             // lblTotal.Text = TotalSales().ToString();
         }
+
+        // this is the start of me trying to multiply unit price by quantity
+
         //private decimal TotalSales()
         //{
         //    decimal lcTotalSales = 0;

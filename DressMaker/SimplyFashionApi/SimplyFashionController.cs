@@ -77,6 +77,7 @@ namespace SimplyFashionApi
             }
         }
         #endregion
+
         #region >>)))*> PREPARE DESIGNERS PARAMETERS
 
         private Dictionary<string, object> prepareDesignersParameters(clsDesigners prDesigners)

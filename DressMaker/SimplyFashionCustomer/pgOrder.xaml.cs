@@ -66,8 +66,8 @@ namespace SimplyFashionCustomer
             {
                 try
                 {
-                    //   DesignerItem = await ServiceClient.GetDesignerItemsAsync(e.Parameter.ToString());
-                    //DispatchDesignerItemContent(DesignerItem as clsAllItems);
+                    // DesignerItem = await ServiceClient.GetDesignerItemsAsync(e.Parameter.ToString());
+                    // DispatchDesignerItemContent(DesignerItem as clsAllItems);
                     Item = e.Parameter as clsAllItems;
                     UpdateForm();
                 }
