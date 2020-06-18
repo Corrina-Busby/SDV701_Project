@@ -74,8 +74,8 @@ namespace SimplyFashionCustomer
             {
                 try
                 {
-                    //        DesignerItem = await ServiceClient.GetDesignerItemsAsync(e.Parameter.ToString());
-                    //                    DispatchDesignerItemContent(DesignerItem as clsAllItems);
+                    // DesignerItem = await ServiceClient.GetDesignerItemsAsync(e.Parameter.ToString());
+                    // DispatchDesignerItemContent(DesignerItem as clsAllItems);
                     _DesignerItem = e.Parameter as clsAllItems;
 
                     DispatchDesignerItemContent(_DesignerItem);

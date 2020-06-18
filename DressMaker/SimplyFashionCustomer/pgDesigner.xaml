@@ -30,7 +30,6 @@
         <TextBlock x:Name="lblType" Text="Type" FontSize="30" HorizontalAlignment="Left" Height="47" Margin="324,198,0,0" VerticalAlignment="Top" Width="115" RequestedTheme="Default" SelectionHighlightColor="#FF91CA26"/>
 
         <!--Sort by Price-->
-        <Button Content="Sort By Price" FontSize="28" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,81,620" Width="204" Height="50" RenderTransformOrigin="1.288,0.532"/>
 
         <!--Label Price-->
         <TextBlock x:Name="lblPrice" Text="Price" FontSize="30" HorizontalAlignment="Left" Height="47" Margin="517,200,0,0" VerticalAlignment="Top" Width="104" RequestedTheme="Default" RenderTransformOrigin="0.068,0.431"/>
@@ -42,10 +41,10 @@
         <Button x:Name="btnOpenDesignerItem" Content="Buy Now ---> " Margin="411,802,0,0" VerticalAlignment="Top" Height="83" Width="302" Background="#FFC7C3BF" FontSize="38" Foreground="White" Click="btnOpenDesignerItem_Click" RequestedTheme="Dark"/>
 
         <!-- Button Back-->
-        <Button x:Name="btnBack" Content="Back" Margin="390,571,0,0" VerticalAlignment="Top" Height="83" Width="302" Background="#FFC7C3BF" FontSize="38" Foreground="White" Click="btnBack_Click" RequestedTheme="Dark"/>
+        <Button x:Name="btnBack" Content="Back" Margin="101,564,0,0" VerticalAlignment="Top" Height="83" Width="302" Background="#FFC7C3BF" FontSize="38" Foreground="White" Click="btnBack_Click" RequestedTheme="Dark"/>
 
         <!--Error msg-->
-        <TextBlock x:Name="lblMessage" FontSize="29" Margin="45,541,421,37" Text="Messages" TextWrapping="Wrap" FontFamily="Segoe UI" RenderTransformOrigin="0.429,-3.276"/>
+        <TextBlock x:Name="lblMessage" FontSize="29" Margin="397,30,69,547" Text="Messages" TextWrapping="Wrap" FontFamily="Segoe UI" RenderTransformOrigin="0.429,-3.276"/>
 
     </Grid>
 </Page>

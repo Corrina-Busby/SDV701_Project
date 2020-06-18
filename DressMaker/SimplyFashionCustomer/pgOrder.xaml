@@ -18,15 +18,15 @@
         <!--Title Order Form-->
         <TextBlock x:Name="lblOrderTitle" FontSize="40" FontWeight="Bold" HorizontalAlignment="Left" Margin="87,48,0,0" Text="Your Order" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI" Height="48" Width="246"/>
 
-        
+
         <!--Item Order Name-->
         <TextBlock x:Name="lblItem" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="105,113,0,0" Text="Item:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI" Height="41" Width="63" RenderTransformOrigin="0.57,-0.11"/>
-        <TextBlock x:Name="lblItemName" FontSize="15" HorizontalAlignment="Left" Margin="178,120,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI" Height="26" Width="74"/>
+        <TextBlock x:Name="lblItemName" FontSize="15" HorizontalAlignment="Left" Margin="178,120,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI" Height="26" Width="165"/>
 
 
         <!--Item Id-->
         <TextBlock x:Name="lblStyle" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="105,165,0,0" Text="Style:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI" Height="41" Width="63" RenderTransformOrigin="0.57,-0.11"/>
-        <TextBlock x:Name="lblSKU" FontSize="15" HorizontalAlignment="Left" Margin="178,171,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI" Height="26" Width="74"/>
+        <TextBlock x:Name="lblSKU" FontSize="15" HorizontalAlignment="Left" Margin="178,171,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI" Height="26" Width="235"/>
 
         <!--Customer Name-->
         <TextBlock x:Name="lblUsername" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" Margin="93,231,0,0" Text="Username:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI"/>
@@ -39,10 +39,10 @@
         <!--Quantity-->
         <TextBlock x:Name="lblQuantityTitle" FontWeight="Bold" FontSize="23" HorizontalAlignment="Left" Margin="191,511,0,0" Text="Quantity:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI"/>
         <TextBlock x:Name="lblQtyAvailTitle" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="346,515,0,0" Text="available" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI" RenderTransformOrigin="0.442,-0.919"/>
-        <TextBlock x:Name="lblQtyInStock" HorizontalAlignment="Left" Margin="292,512,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" Height="35"/>
+        <TextBlock x:Name="lblQtyInStock" FontWeight="Bold" FontSize="23" HorizontalAlignment="Left" Margin="302,511,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" Height="35"/>
         <TextBox x:Name="txtOrderQty" HorizontalAlignment="Left" Margin="434,510,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="77" Height="33"/>
 
-        
+
         <!--Price-->
         <TextBlock x:Name="lblPriceHeader" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" Margin="346,577,0,0" Text="NZ$:" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI" RenderTransformOrigin="0.447,1.46"/>
         <TextBlock x:Name="lblBuyPrice" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" Margin="434,576,0,0" Text="- - - -" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI" RenderTransformOrigin="0.442,-0.919"/>
@@ -54,7 +54,7 @@
         <Button x:Name="btnCancelPurchase" Click="btnCancelPurchase_Click" Content="Cancel" Margin="94,660,0,0" VerticalAlignment="Top" Height="66" Width="155" Background="#FF0DBFDE" FontSize="25" FocusVisualPrimaryBrush="Black" Foreground="White" RenderTransformOrigin="0.467,1.196"/>
 
         <!--Error Message-->
-        <TextBlock x:Name="lblMessage" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="273" Margin="249,107,0,0" FontSize="20" FontFamily="Segoe UI" />
+        <TextBlock x:Name="lblMessage" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="273" Margin="291,49,0,0" FontSize="20" FontFamily="Segoe UI" />
 
     </Grid>
 </Page>
