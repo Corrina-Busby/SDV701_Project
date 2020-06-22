@@ -8,6 +8,8 @@ using Windows.UI.Xaml.Input;
 namespace SimplyFashionCustomer
 {
     /// <summary>
+    /// author's name: Corrina Busby
+    /// date: 22/06/2020
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class pgDesigners : Page

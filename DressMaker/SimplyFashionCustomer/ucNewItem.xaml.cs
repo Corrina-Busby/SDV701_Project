@@ -5,8 +5,10 @@
 namespace SimplyFashionCustomer
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// author's name: Corrina Busby
+    /// date: 22/06/2020
     /// </summary>
+   
     public sealed partial class ucNewItem : Page
     {
         public ucNewItem()

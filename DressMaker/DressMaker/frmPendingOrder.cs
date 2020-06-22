@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
+/// <summary>
+/// author's name: Corrina Busby
+/// date: 22/06/2020
+/// </summary>
+
 namespace SimplyFashionAdmin
 {
     public sealed partial class frmPendingOrder : Form

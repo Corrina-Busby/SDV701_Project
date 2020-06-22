@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 /// <summary>
+/// author's name: Corrina Busby
+/// date: 22/06/2020
 /// Using a DTO to tranfer data from the client back to the Server 
 /// </summary>
-/// 
+
 namespace SimplyFashionCustomer
 {
     class ServiceClient

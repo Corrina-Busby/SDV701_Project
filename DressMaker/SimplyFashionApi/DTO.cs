@@ -4,6 +4,8 @@ using System.Collections.Generic;
 namespace SimplyFashionApi
 {
     /// <summary>
+    /// author's name: Corrina Busby
+    /// date: 22/06/2020
     /// Info for Designer
     /// </summary>
     public class clsDesigners

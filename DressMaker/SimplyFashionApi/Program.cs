@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
 
+/// <summary>
+/// author's name: Corrina Busby
+/// date: 22/06/2020
+/// </summary>
+
 namespace SimplyFashionApi
 {
     class Program

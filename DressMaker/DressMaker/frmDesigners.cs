@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 
 /// <summary>
+/// author's name: Corrina Busby
+/// date: 22/06/2020
 /// Displays the Designers name, retrieves from database 
 /// Select a designer to view specific items etc to that designer
 /// Need to hide this form on opening another form and show when exiting the frmdesigner

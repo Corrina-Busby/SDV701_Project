@@ -1,4 +1,10 @@
 ﻿namespace SimplyFashionAdmin
+
+/// <summary>
+/// author's name: Corrina Busby
+/// date: 22/06/2020
+/// </summary>
+
 {
     public sealed partial class frmUsedItem : SimplyFashionAdmin.frmItem
     {

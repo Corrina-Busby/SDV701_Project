@@ -8,6 +8,8 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 /// <summary>
+/// author's name: Corrina Busby
+/// date: 22/06/2020
 /// messagebox dialog https://docs.microsoft.com/en-us/uwp/api/windows.ui.popups.messagedialog?view=winrt-19041
 /// </summary>
 namespace SimplyFashionCustomer

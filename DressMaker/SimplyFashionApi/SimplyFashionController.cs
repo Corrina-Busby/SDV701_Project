@@ -6,6 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http.ModelBinding.Binders;
 
+/// <summary>
+/// author's name: Corrina Busby
+/// date: 22/06/2020
+/// </summary>
+
 namespace SimplyFashionApi
 {
     public class SimplyFashionController : System.Web.Http.ApiController
